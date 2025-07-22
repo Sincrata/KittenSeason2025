@@ -48,10 +48,10 @@
   </div>
 
   <!-- Dropdown -->
-  <label for="var11"><strong>Select Mode:</strong></label>
-  <select id="var11">
+  <label for="storyMode"><strong>Select Mode:</strong></label>
+  <select id="storyMode">
     <option value="">--Select an option--</option>
-    <option value="het">Heterosexual</option>
+    <option value="heterosexual">Heterosexual</option>
     <option value="gay">Gay</option>
     <option value="lesbian">Lesbian</option>
     <option value="mom">Single Mom</option>
@@ -83,15 +83,21 @@
       document.getElementById(id).addEventListener("change", checkInputs);
     });
 
-    function submitData() {
-      let outputHTML = "<h3>Your Inputs:</h3><ul>";
-      inputIds.forEach(id => {
-        const value = document.getElementById(id).value;
-        outputHTML += `<li>${id}: ${value}</li>`;
-      });
-      outputHTML += "</ul>";
-      document.getElementById("output").innerHTML = outputHTML;
-    }
+function submitData() {
+  const params = new URLSearchParams();
+  inputIds.forEach(id => {
+    const value = document.getElementById(id).value;
+    params.append(id, value);
+  });
+  const storyMode = document.getElementById("storyMode").value;
+  if (!storyMode) {
+    alert("Please select a story mode.");
+    return;
+  }
+
+  // Redirect to selected story mode page with parameters
+  window.location.href = `${storyMode}/home.html?${params.toString()}`;
+}
   </script>
 </body>
 </html>

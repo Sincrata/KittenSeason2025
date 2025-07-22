@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Protected Custom Story</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #customization, #story { display: none; margin-top: 20px; }
+    #story { font-size: 1.2em; }
+  </style>
+</head>
+<body>
+  <h2>Enter Password to Begin</h2>
+  <input type="password" id="passwordInput" placeholder="Enter password">
+  <button onclick="checkPassword()">Access</button>
+
+  <div id="customization">
+    <h3>Customize Your Story</h3>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Cathy"><br><br>
+
+    <label for="pronoun">Pronoun (e.g. her, his, their):</label>
+    <input type="text" id="pronoun" placeholder="her"><br><br>
+
+    <button onclick="generateStory()">Show Story</button>
+  </div>
+
+  <div id="story"></div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("passwordInput").value;
+      const correctPassword = "lemons"; // Set your password here
+
+      if (password === correctPassword) {
+        document.getElementById("customization").style.display = "block";
+        document.getElementById("passwordInput").style.display = "none";
+        event.target.style.display = "none"; // hides the Access button
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+
+    function generateStory() {
+      const name = document.getElementById("name").value || "Cathy";
+      const pronoun = document.getElementById("pronoun").value || "her";
+
+      const sentence = `${name} pet ${pronoun} cat.`;
+      document.getElementById("story").innerText = sentence;
+      document.getElementById("story").style.display = "block";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Information Submission</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .column-wrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .column {
+      flex: 1;
+    }
+    .column h3 {
+      margin-bottom: 10px;
+    }
+    input, select, button {
+      margin-bottom: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #submitBtn { margin-top: 20px; }
+    #output { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Enter Your Parental Info</h2>
+
+  <!-- 5 + 5 Input Groups -->
+  <div class="column-wrapper">
+    <div class="column">
+      <h3>Carrying Parent</h3>
+      <input type="text" id="PregnantName" placeholder="Name">
+      <input type="text" id="PregnantSheHeThey" placeholder="She, He, They">
+      <input type="text" id="PregnentHerHimThem" placeholder="Her, Him, Them">
+      <input type="text" id="PregnantHerHisTheir" placeholder="Her, His, Their">
+      <input type="text" id="PregnantHersHisTheirs" placeholder="Hers, His, Theirs">
+    </div>
+    <div class="column">
+      <h3>Other Parent</h3>
+      <input type="text" id="OtherName" placeholder="Name">
+      <input type="text" id="OtherSheHeThey" placeholder="She, He, They">
+      <input type="text" id="OtherHerHimThem" placeholder="Her, Him, Them">
+      <input type="text" id="OtherHerHisTheir" placeholder="Her, His, Their">
+      <input type="text" id="OtherHersHisTheirs" placeholder="Hers, His, Theirs">
+    </div>
+  </div>
+
+  <!-- Dropdown -->
+  <label for="var11"><strong>Select Mode:</strong></label>
+  <select id="var11">
+    <option value="">--Select an option--</option>
+    <option value="het">Heterosexual</option>
+    <option value="gay">Gay</option>
+    <option value="lesbian">Lesbian</option>
+    <option value="mom">Single Mom</option>
+    <option value="dad">Single Dad</option>
+  </select>
+
+  <!-- Submit Button -->
+  <button id="submitBtn" disabled onclick="submitData()">Submit</button>
+
+  <!-- Output -->
+  <div id="output"></div>
+
+  <script>
+    const inputIds = [
+      "PregnantName", "PregnantSheHeThey", "PregnentHerHimThem", "PregnantHerHisTheir", "PregnantHersHisTheirs",
+      "OtherName", "OtherSheHeThey", "OtherHerHimThem", "OtherHerHisTheir", "OtherHerHisTheir", "OtherHersHisTheirs"
+    ];
+
+    function checkInputs() {
+      const allFilled = inputIds.every(id => {
+        const element = document.getElementById(id);
+        return element && element.value.trim() !== "";
+      });
+      document.getElementById("submitBtn").disabled = !allFilled;
+    }
+
+    inputIds.forEach(id => {
+      document.getElementById(id).addEventListener("input", checkInputs);
+      document.getElementById(id).addEventListener("change", checkInputs);
+    });
+
+    function submitData() {
+      let outputHTML = "<h3>Your Inputs:</h3><ul>";
+      inputIds.forEach(id => {
+        const value = document.getElementById(id).value;
+        outputHTML += `<li>${id}: ${value}</li>`;
+      });
+      outputHTML += "</ul>";
+      document.getElementById("output").innerHTML = outputHTML;
+    }
+  </script>
+</body>
+</html>

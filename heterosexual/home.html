@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Map</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    img { max-width: 100%; }
+    body { margin: auto; display: block; text-align: center; }
+    .paramDisplay { margin-top: 20px; font-family: sans-serif; }
+    header { margin: 50px 120px; }
+    .indexButton {
+      border-radius: 10px;
+      border: 5px solid #e48198;
+      padding: 10px 20px;
+      background: linear-gradient(to bottom, #ffd4a5, #ffa1b9);
+      box-shadow: none;
+      color: #ae0039;
+    }
+    .indexButton:hover {
+      background-color: #36b9c3;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="padding: 10px;">
+      <h2>Choose Your Story Path</h2>
+
+      <!-- Display parameters -->
+      <div id="customDisplay" class="paramDisplay"></div>
+
+      <button onclick="goToNextPage()" class="indexButton">Adjust Parameters</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Image map -->
+    <img src="https://i.imgur.com/KJUrzuz.png" usemap="#storymap" alt="Story Map">
+    <map name="storymap">
+      <area class="map-link" shape="circle" coords="500,238,50" data-target="a.html" alt="Path A">
+      <!-- Add up to 20 areas like this -->
+      <!-- Example:
+      <area class="map-link" shape="rect" coords="100,100,200,200" data-target="b.html" alt="Path B">
+      -->
+    </map>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    // Display selected parameters
+    const displayHTML = `
+      <strong>Carrying Parent Name:</strong> ${params.get("PregnantName") || "(unknown)"}<br>
+      <strong>Pronouns:</strong> 
+        ${params.get("PregnantSheHeThey") || "(unspecified)"} /
+        ${params.get("PregnantHerHimThem") || "(unspecified)"} /
+        ${params.get("PregnantHerHisTheir") || "(unspecified)"} /
+        ${params.get("PregnantHersHisTheirs") || "(unspecified)"}<br>
+      <strong>Other Parent Name:</strong> ${params.get("OtherName") || "(unknown)"}<br>
+      <strong>Pronouns:</strong> 
+        ${params.get("OtherSheHeThey") || "(unspecified)"} /
+        ${params.get("OtherHerHimThem") || "(unspecified)"} /
+        ${params.get("OtherHerHisTheir") || "(unspecified)"} /
+        ${params.get("OtherHersHisTheirs") || "(unspecified)"}
+    `;
+    document.getElementById("customDisplay").innerHTML = displayHTML;
+
+    // Redirect to fix.html with current parameters
+    function goToNextPage() {
+      window.location.href = `fix.html?${params.toString()}`;
+    }
+
+    // Apply parameters to all image map links
+    const areas = document.querySelectorAll(".map-link");
+    areas.forEach(area => {
+      const target = area.getAttribute("data-target");
+      if (target) {
+        area.href = `${target}?${params.toString()}`;
+      }
+    });
+  </script>
+</body>
+</html>
+

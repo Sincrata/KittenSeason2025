@@ -1,0 +1,24 @@
+body{margin: auto; display: block; text-align: center; background-color: #e48198; color: #ae0039;}
+header{background-color: #ffcce2;}
+button{margin: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid #e48198;
+      background: linear-gradient(to bottom, #ffd4a5, #ffa1b9);
+      color: #ae0039;
+      cursor: pointer;
+      font-size: 16px;}
+button:hover:hover{background-color: #36b9c3; color:#ffffff;}
+.story{border: 2px solid #e48198;}
+    article{
+	background-color: #ffcce2;
+	padding: 25px;
+	}
+
+
+
+
+
+
+
+button{cursor: pointer;}

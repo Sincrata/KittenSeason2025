@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Story Page A</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+	article{max-width: 600px; margin: auto; display: block;}
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    .story {
+      margin: 30px auto;
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .button-group {
+      margin-top: 30px;
+    }
+    #customDisplay {
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body class="prompt">
+<article>
+  <h2 class="prompt">Conception</h2>
+
+  <!-- Display parameters -->
+  <div id="customDisplay"></div>
+
+    <button onclick="goToFix()" class="storyButton">Fix Parameters</button>
+
+  <!-- Story content -->
+  <div class="story" id="storyBox"></div>
+
+<button onclick="copyStory()" class="storyButton">Copy Story</button>
+
+
+  <!-- Navigation buttons -->
+  <div class="button-group">
+    <button onclick="goToPage('b.html')" class="storyButton">Happy</button>
+    <button onclick="goToPage('c.html')" class="storyButton">Nervous</button>
+    <!-- <button onclick="goToPage('d.html')" class="storyButton">Shock</button>-->
+  </div>
+</article>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    // Required fields
+    const requiredFields = [
+      "PregnantName", "PregnantSheHeThey", "PregnantHerHimThem",
+      "PregnantHerHisTheir", "PregnantHersHisTheirs",
+      "OtherName", "OtherSheHeThey", "OtherHerHimThem",
+      "OtherHerHisTheir", "OtherHersHisTheirs"
+    ];
+
+    // Redirect to fix.html if any field is missing
+    const missing = requiredFields.filter(field => !params.get(field));
+    if (missing.length > 0) {
+      window.location.href = `fix.html?${params.toString()}`;
+    }
+
+const lc = str => (str || "").toLowerCase();
+const cap = str => (str || "").charAt(0).toUpperCase() + str.slice(1);
+
+// Initialize variables
+const PregnantName = cap(lc(params.get("PregnantName")));
+const PregnantSheHeThey = lc(params.get("PregnantSheHeThey"));
+const PregnantHerHimThem = lc(params.get("PregnantHerHimThem"));
+const PregnantHerHisTheir = lc(params.get("PregnantHerHisTheir"));
+const PregnantHersHisTheirs = lc(params.get("PregnantHersHisTheirs"));
+
+const OtherName = cap(lc(params.get("OtherName")));
+const OtherSheHeThey = lc(params.get("OtherSheHeThey"));
+const OtherHerHimThem = lc(params.get("OtherHerHimThem"));
+const OtherHerHisTheir = lc(params.get("OtherHerHisTheir"));
+const OtherHersHisTheirs = lc(params.get("OtherHersHisTheirs"));
+
+// Build story
+const storyText = `
+  ${PregnantName} fiddled with the sugar packet on the table, ${PregnantHerHisTheir} heart doing a little flutter-kick ${PregnantSheHeThey} hadn't quite felt before. 
+  Across from ${PregnantHerHimThem}, ${OtherName} grinned, oblivious, as ${OtherSheHeThey} recounted a funny story from ${OtherHerHisTheir} work day. 
+  They were at their favorite cozy cafe, sunlight streaming through the window, but ${PregnantName} felt a different kind of warmth – a mix of apprehension and bubbling hope. 
+  ${cap(PregnantSheHeThey)} knew this was the moment.
+
+  Taking a deep breath, ${PregnantName} interrupted ${OtherHerHisTheir} tale. 
+  "${OtherName}," ${PregnantSheHeThey} began, ${PregnantHerHisTheir} voice softer than usual. 
+  ${cap(OtherSheHeThey)} paused, sensing the shift in ${PregnantHerHisTheir} tone. 
+  "I... I have something to tell you. Something big." 
+  ${cap(PregnantSheHeThey)} met ${OtherHerHisTheir} gaze, a shy smile gracing ${PregnantHerHisTheir} lips. 
+  "I found out I'm pregnant. With our kitten."
+
+  A moment of silence hung in the air, then ${OtherName}'s eyes widened.
+
+  <strong>Question:</strong><br>
+  How does ${OtherName} respond?
+`;
+
+document.getElementById("storyBox").innerHTML = storyText;
+
+
+    // Display parameter summary
+    const displayHTML = `
+      <strong>Carrying Parent Name:</strong> ${PregnantName}<br>
+      <strong>Pronouns:</strong> 
+        ${PregnantSheHeThey} /
+        ${PregnantHerHimThem} /
+        ${PregnantHerHisTheir} /
+        ${PregnantHersHisTheirs}<br>
+      <strong>Other Parent Name:</strong> ${OtherName}<br>
+      <strong>Pronouns:</strong> 
+        ${OtherSheHeThey} /
+        ${OtherHerHimThem} /
+        ${OtherHerHisTheir} /
+        ${OtherHersHisTheirs}
+    `;
+    document.getElementById("customDisplay").innerHTML = displayHTML;
+
+    // Navigation functions
+    function goToFix() {
+      window.location.href = `fix.html?${params.toString()}`;
+    }
+
+    function goToPage(page) {
+      window.location.href = `${page}?${params.toString()}`;
+    }
+
+function copyStory() {
+  const story = document.getElementById("storyBox").innerText;
+
+  navigator.clipboard.writeText(story)
+    .then(() => {
+      alert("Story copied to clipboard!");
+    })
+    .catch(err => {
+      alert("Failed to copy story.");
+      console.error(err);
+    });
+}
+
+  </script>
+</body>
+</html>

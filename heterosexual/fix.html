@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Parental Info</title>
+<link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+	text-align: left;
+    }
+    h2 { color: #d04f7f; }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 6px;
+      margin-bottom: 8px;
+      box-sizing: border-box;
+      border: 2px solid #eb7c95;
+      border-radius: 6px;
+      background-color: #ffffff;
+    }
+    input.missing {
+      border-color: #d04f7f;
+      background-color: #ffffff;
+    }
+    button {
+border-radius: 10px; border: 5px solid #e48198; padding: 10px 20px; background: linear-gradient(to bottom, #ffd4a5, #ffa1b9); box-shadow: none; color:#ae0039;
+    }
+    button:hover {
+      background-color: #fdbcc8;
+    }
+  </style>
+</head>
+<body>
+<article>
+  <h2>Update or Complete Your Parental Info</h2>
+  <form id="updateForm">
+    <!-- Inputs will be injected here -->
+  </form>
+
+  <button onclick="submitUpdated()">Continue to Story</button>
+</article>
+
+  <script>
+    const fieldNames = [
+      "PregnantName", "PregnantSheHeThey", "PregnantHerHimThem",
+      "PregnantHerHisTheir", "PregnantHersHisTheirs",
+      "OtherName", "OtherSheHeThey", "OtherHerHimThem",
+      "OtherHerHisTheir", "OtherHersHisTheirs"
+    ];
+
+    const labelMap = {
+      PregnantName: "Carrying Parent Name",
+      PregnantSheHeThey: "Subject Pronoun (she/he/they)",
+      PregnantHerHimThem: "Object Pronoun (her/him/them)",
+      PregnantHerHisTheir: "Possessive Adjective (her/his/their)",
+      PregnantHersHisTheirs: "Possessive Pronoun (hers/his/theirs)",
+      OtherName: "Other Parent Name",
+      OtherSheHeThey: "Subject Pronoun (she/he/they)",
+      OtherHerHimThem: "Object Pronoun (her/him/them)",
+      OtherHerHisTheir: "Possessive Adjective (her/his/their)",
+      OtherHersHisTheirs: "Possessive Pronoun (hers/his/theirs)"
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const form = document.getElementById("updateForm");
+
+    // Build form inputs with custom labels
+    fieldNames.forEach(name => {
+      const value = params.get(name) || "";
+      const isMissing = value.trim() === "";
+      const labelText = labelMap[name] || name;
+
+      const label = `<label for="${name}">${labelText}</label>`;
+      const input = `<input type="text" id="${name}" name="${name}" value="${value}" class="${isMissing ? 'missing' : ''}">`;
+
+      form.innerHTML += label + input;
+    });
+
+    function submitUpdated() {
+      const newParams = new URLSearchParams();
+      let missingFields = [];
+
+      fieldNames.forEach(name => {
+        const input = document.getElementById(name);
+        const val = input.value.trim();
+
+        if (!val) {
+          missingFields.push(labelMap[name] || name);
+          input.classList.add("missing");
+        } else {
+          input.classList.remove("missing");
+          newParams.append(name, val);
+        }
+      });
+
+      if (missingFields.length > 0) {
+        alert("Please fill in all missing fields:\n" + missingFields.join(", "));
+        return;
+      }
+
+      // Redirect to next story page
+      window.location.href = `home.html?${newParams.toString()}`;
+    }
+  </script>
+</body>
+</html>
+

@@ -14,7 +14,18 @@ button:hover:hover{background-color: #36b9c3; color:#ffffff;}
 	background-color: #ffcce2;
 	padding: 25px;
 	}
-
+main{background-color: #ffcce2; max-width: 1000px; margin: auto; display: box;}
+.copy{padding: 5px 10px;
+background: none;
+background-color: #ffd3a5;
+color: #ae0039;}
+.copy:hover{
+color: #ffffff;
+border: 2px solid #ffcce2;
+}
+.fixtitle{
+text-align: center; background-color: #ffa1b8; padding: 15px; border: 2px solid #ae0039; border-radius: 10px; color: #ae0039;}
+hr{background-color: #ae0039; border: none; height: 1px;}
 
 
 

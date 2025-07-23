@@ -7,7 +7,7 @@
     img { max-width: 100%; }
     body { margin: auto; display: block; text-align: center; }
     .paramDisplay { margin-top: 20px; font-family: sans-serif; }
-    header { margin: 50px 120px; }
+    header { margin: auto; max-width: 1000px;}
     .indexButton {
       border-radius: 10px;
       border: 5px solid #e48198;
@@ -20,30 +20,42 @@
       background-color: #36b9c3;
       color: #ffffff;
     }
+.columns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+}
   </style>
 </head>
 <body>
   <header>
+      <h2 style="font-size: 50px; padding-top: 10px; padding-bottom: 0px;">Choose Your Story</h2>
+    <!-- Image map -->
+    <img src="https://i.imgur.com/KJUrzuz.png" usemap="#storymap" alt="Story Map" style="padding-top: 0px;">
+    <map name="storymap">
+      <area class="map-link" shape="circle" coords="500,238,50" data-target="a.html" alt="Path A">
+    </map>
+  </header>
+
+  <main>
+<div class="columns">
+  <div class="column">
+    <p>Content goes here...</p>
+  </div>
+  <div class="column">
     <div style="padding: 10px;">
-      <h2>Choose Your Story Path</h2>
 
       <!-- Display parameters -->
       <div id="customDisplay" class="paramDisplay"></div>
 
       <button onclick="goToNextPage()" class="indexButton">Adjust Parameters</button>
     </div>
-  </header>
-
-  <main>
-    <!-- Image map -->
-    <img src="https://i.imgur.com/KJUrzuz.png" usemap="#storymap" alt="Story Map">
-    <map name="storymap">
-      <area class="map-link" shape="circle" coords="500,238,50" data-target="a.html" alt="Path A">
-      <!-- Add up to 20 areas like this -->
-      <!-- Example:
-      <area class="map-link" shape="rect" coords="100,100,200,200" data-target="b.html" alt="Path B">
-      -->
-    </map>
+  </div>
   </main>
 
   <!-- Scripts -->

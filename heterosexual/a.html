@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Story Page A</title>
+  <title>Conception</title>
   <link rel="stylesheet" href="style.css">
   <style>
-	article{max-width: 600px; margin: auto; display: block;}
+    article {
+      max-width: 600px;
+      margin: auto;
+      display: block;
+    }
     body {
       font-family: Arial, sans-serif;
       padding: 30px;
@@ -32,120 +36,183 @@
 <body class="prompt">
 <article>
   <h2 class="prompt">Conception</h2>
+  <p>By Tenshilove</p>
 
-  <!-- Display parameters -->
   <div id="customDisplay"></div>
+  <button onclick="goToFix()" class="storyButton">Fix Parameters</button>
 
-    <button onclick="goToFix()" class="storyButton">Fix Parameters</button>
-
-  <!-- Story content -->
-  <div class="story" id="storyBox"></div>
-
-<button onclick="copyStory()" class="storyButton">Copy Story</button>
-
-
-  <!-- Navigation buttons -->
-  <div class="button-group">
-    <button onclick="goToPage('b.html')" class="storyButton">Happy</button>
-    <button onclick="goToPage('c.html')" class="storyButton">Nervous</button>
-    <!-- <button onclick="goToPage('d.html')" class="storyButton">Shock</button>-->
+  <div class="story">
+    <div id="storyBox"></div>
+    <button onclick="copyStory()" class="copy">Copy Story</button>
   </div>
+
+  <div id="storyContainer">
+    <button onclick="showStory('happy')" class="storyButton">Happy</button>
+    <button onclick="showStory('nervous')" class="storyButton">Nervous</button>
+    <!-- <button onclick="showStory('shock')" class="storyButton">Shock</button> --!>
+  </div>
+
+  <div id="storyDisplay"></div>
+  <textarea id="copyBuffer" style="position:absolute; left:-9999px;"></textarea>
 </article>
-  <script>
-    const params = new URLSearchParams(window.location.search);
 
-    // Required fields
-    const requiredFields = [
-      "PregnantName", "PregnantSheHeThey", "PregnantHerHimThem",
-      "PregnantHerHisTheir", "PregnantHersHisTheirs",
-      "OtherName", "OtherSheHeThey", "OtherHerHimThem",
-      "OtherHerHisTheir", "OtherHersHisTheirs"
-    ];
+<script>
+  const params = new URLSearchParams(window.location.search);
 
-    // Redirect to fix.html if any field is missing
-    const missing = requiredFields.filter(field => !params.get(field));
-    if (missing.length > 0) {
-      window.location.href = `fix.html?${params.toString()}`;
+  const requiredFields = [
+    "PregnantName", "PregnantSheHeThey", "PregnantHerHimThem",
+    "PregnantHerHisTheir", "PregnantHersHisTheirs",
+    "OtherName", "OtherSheHeThey", "OtherHerHimThem",
+    "OtherHerHisTheir", "OtherHersHisTheirs"
+  ];
+
+  const missing = requiredFields.filter(field => !params.get(field));
+  if (missing.length > 0) {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  const lc = str => (str || "").toLowerCase();
+  const cap = str => (str || "").charAt(0).toUpperCase() + str.slice(1);
+
+  const PregnantName = cap(lc(params.get("PregnantName")));
+  const PregnantSheHeThey = lc(params.get("PregnantSheHeThey"));
+  const PregnantHerHimThem = lc(params.get("PregnantHerHimThem"));
+  const PregnantHerHisTheir = lc(params.get("PregnantHerHisTheir"));
+  const PregnantHersHisTheirs = lc(params.get("PregnantHersHisTheirs"));
+
+  const OtherName = cap(lc(params.get("OtherName")));
+  const OtherSheHeThey = lc(params.get("OtherSheHeThey"));
+  const OtherHerHimThem = lc(params.get("OtherHerHimThem"));
+  const OtherHerHisTheir = lc(params.get("OtherHerHisTheir"));
+  const OtherHersHisTheirs = lc(params.get("OtherHersHisTheirs"));
+
+  const storyText = `
+${PregnantName} fiddled with the sugar packet on the table, ${PregnantHerHisTheir} heart doing a little flutter-kick ${PregnantSheHeThey} hadn't quite felt before. 
+Across from ${PregnantHerHimThem}, ${OtherName} grinned, oblivious, as ${OtherSheHeThey} recounted a funny story from ${OtherHerHisTheir} work day. 
+They were at their favorite cozy cafe, sunlight streaming through the window, but ${PregnantName} felt a different kind of warmth – a mix of apprehension and bubbling hope. 
+${cap(PregnantSheHeThey)} knew this was the moment.
+
+Taking a deep breath, ${PregnantName} interrupted ${OtherHerHisTheir} tale. 
+"${OtherName}," ${PregnantSheHeThey} began, ${PregnantHerHisTheir} voice softer than usual. 
+${cap(OtherSheHeThey)} paused, sensing the shift in ${PregnantHerHisTheir} tone. 
+"I... I have something to tell you. Something big." 
+${cap(PregnantSheHeThey)} met ${OtherHerHisTheir} gaze, a shy smile gracing ${PregnantHerHisTheir} lips. 
+"I found out I'm pregnant. With our kitten."
+
+A moment of silence hung in the air, then ${OtherName}'s eyes widened.
+
+Question:
+How does ${OtherName} respond? Happy or Nervous?
+  `.trim();
+
+  document.getElementById("storyBox").innerText = storyText;
+
+  const displayHTML = `
+    <strong>Carrying Parent Name:</strong> ${PregnantName}<br>
+    <strong>Pronouns:</strong> 
+      ${PregnantSheHeThey} /
+      ${PregnantHerHimThem} /
+      ${PregnantHerHisTheir} /
+      ${PregnantHersHisTheirs}<br>
+    <strong>Other Parent Name:</strong> ${OtherName}<br>
+    <strong>Pronouns:</strong> 
+      ${OtherSheHeThey} /
+      ${OtherHerHimThem} /
+      ${OtherHerHisTheir} /
+      ${OtherHersHisTheirs}
+  `;
+  document.getElementById("customDisplay").innerHTML = displayHTML;
+
+  function goToFix() {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  function goToPage(page) {
+    window.location.href = `${page}?${params.toString()}`;
+  }
+
+  function copyStory() {
+    const story = document.getElementById("storyBox").innerText;
+    navigator.clipboard.writeText(story)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy story.");
+        console.error(err);
+      });
+  }
+
+  function copyFromBuffer() {
+    const buffer = document.getElementById("copyBuffer");
+    buffer.select();
+    buffer.setSelectionRange(0, 99999); // For mobile
+    navigator.clipboard.writeText(buffer.value)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy.");
+        console.error(err);
+      });
+  }
+
+  function showStory(path) {
+    const storyBox = document.getElementById("storyDisplay");
+    let text = "";
+
+    if (path === 'happy') {
+      page = "b";
+      text = `${OtherName}'s face lit up with a slow smile, growing wider and brighter with each passing second.
+"Pregnant?" ${cap(OtherSheHeThey)} whispered, ${OtherHerHisTheir} voice laced with disbelief, then pure, unadulterated joy. 
+${cap(OtherSheHeThey)} reached across the table, taking both ${PregnantHerHisTheir} hands in ${OtherHersHisTheirs}, a delighted laugh bubbling up from ${OtherHerHisTheir} chest. 
+"${PregnantName}, that's... that's incredible! Oh my goodness, a baby! Our baby!" 
+${cap(OtherSheHeThey)} was beaming, ${OtherHerHisTheir} excitement infectious. 
+"Are you serious? This is the best news I've ever heard!" 
+${cap(OtherHerHisTheir)} grip tightened gently, ${OtherHerHisTheir} eyes sparkling with unshed tears of happiness. 
+"We're going to be parents!"
+
+${PregnantName}'s own worries dissolved seeing ${OtherHerHisTheir} joyous reaction. 
+"Yes," ${PregnantSheHeThey} confirmed, ${PregnantHerHisTheir} smile mirroring ${OtherHersHisTheirs}. 
+"We are." 
+${OtherName} squeezed ${PregnantHerHisTheir} hands, ${OtherHerHisTheir} eyes full of love for ${PregnantHerHimThem} and the life growing within ${PregnantHerHimThem}. 
+"I can't wait," ${OtherSheHeThey} said, ${OtherHerHisTheir} voice thick with emotion. 
+They sat there, hands clasped, already imagining their future, a beautiful new chapter unfolding right before their eyes. 
+Their love, already strong, deepened with the promise of their little one, a testament to the incredible journey they were about to embark on together.`; // your happy story here
+    } else if (path === 'nervous') {
+      page = "c";
+      text = `${OtherName}'s world tilted. ${cap(OtherHerHisTheir)} initial reaction was a surge of pure, unadulterated panic. A baby? Now? 
+${cap(OtherSheHeThey)} loved ${PregnantName} more than anything, and deep down, the idea of having a child with ${PregnantHerHimThem} was a dream ${OtherSheHeThey} secretly harbored. 
+But the practicalities hit ${OtherHerHimThem} like a tidal wave – money, responsibilities, their still-developing careers. 
+Could they even afford a kitten? ${cap(OtherHerHisTheir)} mind raced, a knot forming in ${OtherHerHisTheir} stomach.
+
+${PregnantName} must have seen the fear in ${OtherHerHisTheir} eyes. 
+${cap(PregnantSheHeThey)} reached across the table, taking ${OtherHerHisTheir} hand. 
+"I know it’s a lot, ${OtherName}. I'm scared too." 
+
+They talked for what felt like hours, discussing their worries, their hopes, and the sheer daunting nature of it all. 
+${cap(OtherSheHeThey)} openly admitted ${OtherHerHisTheir} financial anxieties, and ${PregnantSheHeThey} acknowledged them, ${PregnantHerHisTheir} understanding gaze unwavering.
+
+Slowly, as they spoke, the initial panic in ${OtherName} began to subside, replaced by a quiet determination. 
+${cap(OtherSheHeThey)} looked at ${PregnantName}, at ${PregnantHerHisTheir} hopeful, slightly fragile smile, and knew what ${OtherSheHeThey} wanted. 
+"We'll figure it out, won't we?" ${OtherSheHeThey} said, squeezing ${PregnantHerHisTheir} hand reassuringly. 
+"It won't be easy, but we'll take it one step at a time. Together." 
+
+${PregnantName}'s smile widened, and for the first time that night, a genuine sense of peace settled between them.`; // your nervous story here
+    } else if (path === 'shock') {
+      page = "d";
+      text = `${OtherName}'s eyes widened, ${cap(OtherHerHisTheir)} jaw slacked. "Pregnant? Are you serious?" ${cap(OtherSheHeThey)} managed, ${OtherHerHisTheir} voice barely a whisper. ${cap(OtherHerHisTheir)} mind reeled. "Are you... are you sure it's mine?" The words tumbled out before ${OtherSheHeThey} could truly process them, a desperate search for solid ground in a suddenly shifting world. ${PregnantName}’s eyes flashed with anger, the warmth draining from ${PregnantHerHisTheir} face. "${OtherName}!" ${cap(PregnantSheHeThey)} exclaimed, ${PregnantHerHisTheir} voice sharp with hurt.
+
+"No, no, I'm so sorry! That was stupid, I didn't mean it like that," ${OtherSheHeThey} stammered, immediately regretting ${OtherHerHisTheir} impulsive question. ${cap(OtherSheHeThey)} truly wasn't against the idea of a kitten, not entirely, but the news had hit ${OtherHerHimThem} like a tidal wave, leaving ${OtherHerHimThem} gasping for air. ${cap(OtherHerHisTheir)} thoughts were a tangled mess of fear and an overwhelming sense of unpreparedness. They finished their date in a haze of unspoken worries, their usual lightness replaced by a heavy, uncertain silence.
+
+Later that night, the weight of the day settled on ${OtherName}. ${cap(OtherSheHeThey)} picked up ${OtherHerHisTheir} phone, ${OtherHerHisTheir} finger hovering over ${PregnantName}’s contact. Taking a deep breath, ${OtherSheHeThey} dialled. "${PregnantName}, I am so incredibly sorry for how I reacted earlier," ${OtherSheHeThey} began, ${OtherHerHisTheir} voice earnest. "I was shocked, and I said something really foolish. I'm scared, yes, but I promise, we’ll figure this out. Together." A small, hopeful silence met ${OtherHerHisTheir} words, a fragile bridge built between them.`; // your shock story here
     }
 
-const lc = str => (str || "").toLowerCase();
-const cap = str => (str || "").charAt(0).toUpperCase() + str.slice(1);
+    document.getElementById("copyBuffer").value = text;
 
-// Initialize variables
-const PregnantName = cap(lc(params.get("PregnantName")));
-const PregnantSheHeThey = lc(params.get("PregnantSheHeThey"));
-const PregnantHerHimThem = lc(params.get("PregnantHerHimThem"));
-const PregnantHerHisTheir = lc(params.get("PregnantHerHisTheir"));
-const PregnantHersHisTheirs = lc(params.get("PregnantHersHisTheirs"));
-
-const OtherName = cap(lc(params.get("OtherName")));
-const OtherSheHeThey = lc(params.get("OtherSheHeThey"));
-const OtherHerHimThem = lc(params.get("OtherHerHimThem"));
-const OtherHerHisTheir = lc(params.get("OtherHerHisTheir"));
-const OtherHersHisTheirs = lc(params.get("OtherHersHisTheirs"));
-
-// Build story
-const storyText = `
-  ${PregnantName} fiddled with the sugar packet on the table, ${PregnantHerHisTheir} heart doing a little flutter-kick ${PregnantSheHeThey} hadn't quite felt before. 
-  Across from ${PregnantHerHimThem}, ${OtherName} grinned, oblivious, as ${OtherSheHeThey} recounted a funny story from ${OtherHerHisTheir} work day. 
-  They were at their favorite cozy cafe, sunlight streaming through the window, but ${PregnantName} felt a different kind of warmth – a mix of apprehension and bubbling hope. 
-  ${cap(PregnantSheHeThey)} knew this was the moment.
-
-  Taking a deep breath, ${PregnantName} interrupted ${OtherHerHisTheir} tale. 
-  "${OtherName}," ${PregnantSheHeThey} began, ${PregnantHerHisTheir} voice softer than usual. 
-  ${cap(OtherSheHeThey)} paused, sensing the shift in ${PregnantHerHisTheir} tone. 
-  "I... I have something to tell you. Something big." 
-  ${cap(PregnantSheHeThey)} met ${OtherHerHisTheir} gaze, a shy smile gracing ${PregnantHerHisTheir} lips. 
-  "I found out I'm pregnant. With our kitten."
-
-  A moment of silence hung in the air, then ${OtherName}'s eyes widened.
-
-  <strong>Question:</strong><br>
-  How does ${OtherName} respond?
-`;
-
-document.getElementById("storyBox").innerHTML = storyText;
-
-
-    // Display parameter summary
-    const displayHTML = `
-      <strong>Carrying Parent Name:</strong> ${PregnantName}<br>
-      <strong>Pronouns:</strong> 
-        ${PregnantSheHeThey} /
-        ${PregnantHerHimThem} /
-        ${PregnantHerHisTheir} /
-        ${PregnantHersHisTheirs}<br>
-      <strong>Other Parent Name:</strong> ${OtherName}<br>
-      <strong>Pronouns:</strong> 
-        ${OtherSheHeThey} /
-        ${OtherHerHimThem} /
-        ${OtherHerHisTheir} /
-        ${OtherHersHisTheirs}
+    storyBox.innerHTML = `
+      <p class="story"><strong>${cap(path)} Path:</strong><br>${text.replace(/\n/g, '<br>')}</p>
+      <button class="storyButton" onclick="copyFromBuffer()">Copy ${cap(path)}</button>
+      <button class="storyButton" onclick="goToPage('${page}.html')">Continue ${cap(path)}</button>
     `;
-    document.getElementById("customDisplay").innerHTML = displayHTML;
-
-    // Navigation functions
-    function goToFix() {
-      window.location.href = `fix.html?${params.toString()}`;
-    }
-
-    function goToPage(page) {
-      window.location.href = `${page}?${params.toString()}`;
-    }
-
-function copyStory() {
-  const story = document.getElementById("storyBox").innerText;
-
-  navigator.clipboard.writeText(story)
-    .then(() => {
-      alert("Story copied to clipboard!");
-    })
-    .catch(err => {
-      alert("Failed to copy story.");
-      console.error(err);
-    });
-}
-
-  </script>
+  }
+</script>
 </body>
 </html>
+

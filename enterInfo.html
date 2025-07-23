@@ -3,7 +3,7 @@
 <head>
   <title>Information Submission</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background-color: #e48198; color: #ae0039;}
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #e3dba2; color: #967e00;}
     .column-wrapper {
       display: flex;
       justify-content: space-between;
@@ -20,46 +20,77 @@
       width: 100%;
       box-sizing: border-box;
     }
-    #submitBtn { margin-top: 20px; }
+    #submitBtn { margin-top: 20px; max-width: 500px; padding: 10px; 	border-radius: 10px;
+      border: 2px solid #967e00;
+	      color: #967e00;
+      cursor: pointer;
+	background-color: #faf1ab;
+      font-size: 16px;}
+#submitBtn:hover:enabled{background-color: #ffffff;}
+    .submitButton{text-align: center;}
     #output { margin-top: 20px; }
+    article{ max-width: 1000px;
+	background-color: #faf4c7;
+	padding: 15px;
+	display: box;
+	margin: auto;}
+#submitBtn:disabled {
+  background: #ddd;
+  color: #999;
+  border-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
   </style>
 </head>
 <body>
-  <h2>Enter Your Parental Info</h2>
+<article>
+<div style="margin: auto; text-align: center;"><img src="https://i.imgur.com/dUomAD5.png"></div>
+  <h2 style="text-align: center; background-color: #faf1ab; padding: 15px; border: 2px solid #e48198; border-radius: 10px; color: #e48198;">Enter Your Parental Info</h2>
+<p style="text-align: center;"> Welcome to the 2025 Kitten Season Admin automation tool! <br>
+Please begin by selecting what mode your story is and then add in names and adjust pronouns as needed.</p>
+
+<hr style="background-color: #967e00; border: none; height: 1px;">
+
+
+<!-- Dropdown -->
+<br>
+<label for="storyMode"><strong style="font-size: 20px;">Select Mode:</strong></label>
+<select style="color: #967e00; border-color: #967e00;" id="storyMode" onchange="applyModeDefaults()">
+  <option value="">--Select an option--</option>
+  <option value="heterosexual">Heterosexual</option>
+  <option value="gay">Gay</option>
+  <option value="lesbian">Lesbian</option>
+  <option value="mom">Single Mom</option>
+  <option value="dad">Single Dad</option>
+</select>
 
   <!-- 5 + 5 Input Groups -->
   <div class="column-wrapper">
     <div class="column">
       <h3>Carrying Parent</h3>
-      <input type="text" id="PregnantName" placeholder="Name">
-      <input type="text" id="PregnantSheHeThey" placeholder="She, He, They">
-      <input type="text" id="PregnantHerHimThem" placeholder="Her, Him, Them">
-      <input type="text" id="PregnantHerHisTheir" placeholder="Her, His, Their">
-      <input type="text" id="PregnantHersHisTheirs" placeholder="Hers, His, Theirs">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="PregnantName" placeholder="Name">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="PregnantSheHeThey" placeholder="She, He, They">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="PregnantHerHimThem" placeholder="Her, Him, Them">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="PregnantHerHisTheir" placeholder="Her, His, Their">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="PregnantHersHisTheirs" placeholder="Hers, His, Theirs">
     </div>
     <div class="column">
       <h3>Other Parent</h3>
-      <input type="text" id="OtherName" placeholder="Name">
-      <input type="text" id="OtherSheHeThey" placeholder="She, He, They">
-      <input type="text" id="OtherHerHimThem" placeholder="Her, Him, Them">
-      <input type="text" id="OtherHerHisTheir" placeholder="Her, His, Their">
-      <input type="text" id="OtherHersHisTheirs" placeholder="Hers, His, Theirs">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="OtherName" placeholder="Name">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="OtherSheHeThey" placeholder="She, He, They">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="OtherHerHimThem" placeholder="Her, Him, Them">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="OtherHerHisTheir" placeholder="Her, His, Their">
+      <input style="color: #967e00; border: 1px solid #967e00;" type="text" id="OtherHersHisTheirs" placeholder="Hers, His, Theirs">
     </div>
   </div>
 
-  <!-- Dropdown -->
-  <label for="storyMode"><strong>Select Mode:</strong></label>
-  <select id="storyMode">
-    <option value="">--Select an option--</option>
-    <option value="heterosexual">Heterosexual</option>
-    <option value="gay">Gay</option>
-    <option value="lesbian">Lesbian</option>
-    <option value="mom">Single Mom</option>
-    <option value="dad">Single Dad</option>
-  </select>
 
   <!-- Submit Button -->
-  <button id="submitBtn" disabled onclick="submitData()">Submit</button>
+  <div class="submitButton"><button id="submitBtn" disabled onclick="submitData()">Submit</button></div>
+</article>
+
+
 
   <!-- Output -->
   <div id="output"></div>
@@ -97,6 +128,63 @@ function submitData() {
 
   // Redirect to selected story mode page with parameters
   window.location.href = `${storyMode}/home.html?${params.toString()}`;
+}
+
+function applyModeDefaults() {
+  const mode = document.getElementById("storyMode").value;
+
+  const pregFields = [
+    "PregnantSheHeThey",
+    "PregnantHerHimThem",
+    "PregnantHerHisTheir",
+    "PregnantHersHisTheirs"
+  ];
+
+  const otherFields = [
+    "OtherSheHeThey",
+    "OtherHerHimThem",
+    "OtherHerHisTheir",
+    "OtherHersHisTheirs"
+  ];
+
+  const defaults = {
+    heterosexual: {
+      pregnant: ["she", "her", "her", "hers"],
+      other: ["he", "him", "his", "his"]
+    },
+    gay: {
+      pregnant: ["he", "him", "his", "his"],
+      other: ["he", "him", "his", "his"]
+    },
+    lesbian: {
+      pregnant: ["she", "her", "her", "hers"],
+      other: ["she", "her", "her", "hers"]
+    },
+    mom: {
+      pregnant: ["she", "her", "her", "hers"],
+      other: ["he", "him", "his", "his"]
+    },
+    dad: {
+      pregnant: ["she", "her", "her", "hers"],
+      other: ["he", "him", "his", "his"]
+    }
+  };
+
+  if (!defaults[mode]) return;
+
+  pregFields.forEach((id, i) => {
+    const field = document.getElementById(id);
+    if (field && !field.value.trim()) {
+      field.value = defaults[mode].pregnant[i];
+    }
+  });
+
+  otherFields.forEach((id, i) => {
+    const field = document.getElementById(id);
+    if (field && !field.value.trim()) {
+      field.value = defaults[mode].other[i];
+    }
+  });
 }
   </script>
 </body>

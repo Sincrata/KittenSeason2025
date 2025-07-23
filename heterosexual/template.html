@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Title Here</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    article {
+      max-width: 600px;
+      margin: auto;
+      display: block;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    .story {
+      margin: 30px auto;
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .button-group {
+      margin-top: 30px;
+    }
+    #customDisplay {
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body class="prompt">
+<article>
+  <h2 class="prompt">Prompt Title</h2>
+  <p>By Tenshilove</p>
+
+  <div id="customDisplay"></div>
+  <button onclick="goToFix()" class="storyButton">Fix Parameters</button>
+
+  <div class="story">
+    <div id="storyBox"></div>
+    <button onclick="copyStory()" class="copy">Copy Story</button>
+  </div>
+
+  <div id="storyContainer">
+    <button onclick="showStory('option 1')" class="storyButton">Option 1</button>
+    <button onclick="showStory('option 2')" class="storyButton">Option 2</button>
+    <button onclick="showStory('option 3')" class="storyButton">Option 3</button>
+  </div>
+
+  <div id="storyDisplay"></div>
+  <textarea id="copyBuffer" style="position:absolute; left:-9999px;"></textarea>
+</article>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const requiredFields = [
+    "PregnantName", "PregnantSheHeThey", "PregnantHerHimThem",
+    "PregnantHerHisTheir", "PregnantHersHisTheirs",
+    "OtherName", "OtherSheHeThey", "OtherHerHimThem",
+    "OtherHerHisTheir", "OtherHersHisTheirs"
+  ];
+
+  const missing = requiredFields.filter(field => !params.get(field));
+  if (missing.length > 0) {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  const lc = str => (str || "").toLowerCase();
+  const cap = str => (str || "").charAt(0).toUpperCase() + str.slice(1);
+
+  const PregnantName = cap(lc(params.get("PregnantName")));
+  const PregnantSheHeThey = lc(params.get("PregnantSheHeThey"));
+  const PregnantHerHimThem = lc(params.get("PregnantHerHimThem"));
+  const PregnantHerHisTheir = lc(params.get("PregnantHerHisTheir"));
+  const PregnantHersHisTheirs = lc(params.get("PregnantHersHisTheirs"));
+
+  const OtherName = cap(lc(params.get("OtherName")));
+  const OtherSheHeThey = lc(params.get("OtherSheHeThey"));
+  const OtherHerHimThem = lc(params.get("OtherHerHimThem"));
+  const OtherHerHisTheir = lc(params.get("OtherHerHisTheir"));
+  const OtherHersHisTheirs = lc(params.get("OtherHersHisTheirs"));
+
+  let PregnantIsAre = "is";
+let PregnantWasWere = "was";
+let OtherIsAre = "is";
+let OtherWasWere = "was";
+
+if (PregnantSheHeThey === "they") {
+  PregnantIsAre = "are";
+  PregnantWasWere = "were";
+}
+
+if (OtherSheHeThey === "they") {
+  OtherIsAre = "are";
+  OtherWasWere = "were";
+}
+
+  const storyText = `Insert Prompt Here ${PregnantIsAre}`.trim();
+
+  document.getElementById("storyBox").innerText = storyText;
+
+  const displayHTML = `
+    <strong>Carrying Parent Name:</strong> ${PregnantName}<br>
+    <strong>Pronouns:</strong> 
+      ${PregnantSheHeThey} /
+      ${PregnantHerHimThem} /
+      ${PregnantHerHisTheir} /
+      ${PregnantHersHisTheirs}<br>
+    <strong>Other Parent Name:</strong> ${OtherName}<br>
+    <strong>Pronouns:</strong> 
+      ${OtherSheHeThey} /
+      ${OtherHerHimThem} /
+      ${OtherHerHisTheir} /
+      ${OtherHersHisTheirs}
+  `;
+  document.getElementById("customDisplay").innerHTML = displayHTML;
+
+  function goToFix() {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  function goToPage(page) {
+    window.location.href = `${page}?${params.toString()}`;
+  }
+
+  function copyStory() {
+    const story = document.getElementById("storyBox").innerText;
+    navigator.clipboard.writeText(story)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy story.");
+        console.error(err);
+      });
+  }
+
+  function copyFromBuffer() {
+    const buffer = document.getElementById("copyBuffer");
+    buffer.select();
+    buffer.setSelectionRange(0, 99999); // For mobile
+    navigator.clipboard.writeText(buffer.value)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy.");
+        console.error(err);
+      });
+  }
+
+  function showStory(path) {
+    const storyBox = document.getElementById("storyDisplay");
+    let text = "";
+
+    if (path === 'option 1') {
+      text = `Option 1 response here`; // your 1 response here
+      page = "option 1 letter"; // your 1 page here
+    } else if (path === 'option 2') {
+      text = `Option 2 response here`; // your 2 story here
+      page = "option 2 letter"; // your 2 page here
+    } else if (path === 'option 3') {
+      text = `Option 3 response here`; // your 3 story here
+      page = "option 3 letter"; // your 3 page here
+    }
+
+    document.getElementById("copyBuffer").value = text;
+
+    storyBox.innerHTML = `
+      <p class="story"><strong>${cap(path)} Path:</strong><br>${text.replace(/\n/g, '<br>')}</p>
+      <button class="storyButton" onclick="copyFromBuffer()">Copy ${cap(path)}</button>
+      <button class="storyButton" onclick="goToPage('${page}.html')">Continue ${cap(path)}</button>
+    `;
+  }
+</script>
+</body>
+</html>
+

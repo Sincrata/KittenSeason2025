@@ -26,6 +26,8 @@ border: 2px solid #ffcce2;
 .fixtitle{
 text-align: center; background-color: #ffa1b8; padding: 15px; border: 2px solid #ae0039; border-radius: 10px; color: #ae0039;}
 hr{background-color: #ae0039; border: none; height: 1px;}
+input{color: #ae0039;}
+.heading{text-align: center; background-color: #faf1ab; padding: 15px; border: 2px solid #e48198; border-radius: 10px; color: #e48198; max-width: 1000px;}
 
 
 

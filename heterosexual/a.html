@@ -40,10 +40,11 @@
 
   <div id="customDisplay"></div>
   <button onclick="goToFix()" class="storyButton">Fix Parameters</button>
+  <button onclick="goToPage('home.html')" class="storyButton">To Index</button>
 
   <div class="story">
     <div id="storyBox"></div>
-    <button onclick="copyStory()" class="copy">Copy Story</button>
+    <button onclick="copyStory()" class="storyButton">Copy Story</button>
   </div>
 
   <div id="storyContainer">
@@ -87,19 +88,7 @@
   const OtherHersHisTheirs = lc(params.get("OtherHersHisTheirs"));
 
   const storyText = `
-${PregnantName} fiddled with the sugar packet on the table, ${PregnantHerHisTheir} heart doing a little flutter-kick ${PregnantSheHeThey} hadn't quite felt before. 
-Across from ${PregnantHerHimThem}, ${OtherName} grinned, oblivious, as ${OtherSheHeThey} recounted a funny story from ${OtherHerHisTheir} work day. 
-They were at their favorite cozy cafe, sunlight streaming through the window, but ${PregnantName} felt a different kind of warmth – a mix of apprehension and bubbling hope. 
-${cap(PregnantSheHeThey)} knew this was the moment.
-
-Taking a deep breath, ${PregnantName} interrupted ${OtherHerHisTheir} tale. 
-"${OtherName}," ${PregnantSheHeThey} began, ${PregnantHerHisTheir} voice softer than usual. 
-${cap(OtherSheHeThey)} paused, sensing the shift in ${PregnantHerHisTheir} tone. 
-"I... I have something to tell you. Something big." 
-${cap(PregnantSheHeThey)} met ${OtherHerHisTheir} gaze, a shy smile gracing ${PregnantHerHisTheir} lips. 
-"I found out I'm pregnant. With our kitten."
-
-A moment of silence hung in the air, then ${OtherName}'s eyes widened.
+${PregnantName} fiddled with the sugar packet on the table, ${PregnantHerHisTheir} heart doing a little flutter-kick ${PregnantSheHeThey} hadn't quite felt before. Across from ${PregnantHerHimThem}, ${OtherName} grinned, oblivious, as ${OtherSheHeThey} recounted a funny story from ${OtherHerHisTheir} work day. They were at their favorite cozy cafe, sunlight streaming through the window, but ${PregnantName} felt a different kind of warmth – a mix of apprehension and bubbling hope. ${cap(PregnantSheHeThey)} knew this was the moment. Taking a deep breath, ${PregnantName} interrupted ${OtherHerHisTheir} tale. "${OtherName}," ${PregnantSheHeThey} began, ${PregnantHerHisTheir} voice softer than usual. ${cap(OtherSheHeThey)} paused, sensing the shift in ${PregnantHerHisTheir} tone. "I... I have something to tell you. Something big." ${cap(PregnantSheHeThey)} met ${OtherHerHisTheir} gaze, a shy smile gracing ${PregnantHerHisTheir} lips. "I found out I'm pregnant. With our kitten."A moment of silence hung in the air, then ${OtherName}'s eyes widened.
 
 Question:
 How does ${OtherName} respond? Happy or Nervous?
@@ -159,42 +148,14 @@ How does ${OtherName} respond? Happy or Nervous?
 
     if (path === 'happy') {
       page = "b";
-      text = `${OtherName}'s face lit up with a slow smile, growing wider and brighter with each passing second.
-"Pregnant?" ${cap(OtherSheHeThey)} whispered, ${OtherHerHisTheir} voice laced with disbelief, then pure, unadulterated joy. 
-${cap(OtherSheHeThey)} reached across the table, taking both ${PregnantHerHisTheir} hands in ${OtherHersHisTheirs}, a delighted laugh bubbling up from ${OtherHerHisTheir} chest. 
-"${PregnantName}, that's... that's incredible! Oh my goodness, a baby! Our baby!" 
-${cap(OtherSheHeThey)} was beaming, ${OtherHerHisTheir} excitement infectious. 
-"Are you serious? This is the best news I've ever heard!" 
-${cap(OtherHerHisTheir)} grip tightened gently, ${OtherHerHisTheir} eyes sparkling with unshed tears of happiness. 
-"We're going to be parents!"
-
-${PregnantName}'s own worries dissolved seeing ${OtherHerHisTheir} joyous reaction. 
-"Yes," ${PregnantSheHeThey} confirmed, ${PregnantHerHisTheir} smile mirroring ${OtherHersHisTheirs}. 
-"We are." 
-${OtherName} squeezed ${PregnantHerHisTheir} hands, ${OtherHerHisTheir} eyes full of love for ${PregnantHerHimThem} and the life growing within ${PregnantHerHimThem}. 
-"I can't wait," ${OtherSheHeThey} said, ${OtherHerHisTheir} voice thick with emotion. 
-They sat there, hands clasped, already imagining their future, a beautiful new chapter unfolding right before their eyes. 
-Their love, already strong, deepened with the promise of their little one, a testament to the incredible journey they were about to embark on together.`; // your happy story here
+      text = `${OtherName}'s face lit up with a slow smile, growing wider and brighter with each passing second."Pregnant?" ${cap(OtherSheHeThey)} whispered, ${OtherHerHisTheir} voice laced with disbelief, then pure, unadulterated joy. ${cap(OtherSheHeThey)} reached across the table, taking both ${PregnantHerHisTheir} hands in ${OtherHersHisTheirs}, a delighted laugh bubbling up from ${OtherHerHisTheir} chest. "${PregnantName}, that's... that's incredible! Oh my goodness, a baby! Our baby!" ${cap(OtherSheHeThey)} was beaming, ${OtherHerHisTheir} excitement infectious. "Are you serious? This is the best news I've ever heard!" ${cap(OtherHerHisTheir)} grip tightened gently, ${OtherHerHisTheir} eyes sparkling with unshed tears of happiness. "We're going to be parents!"
+${PregnantName}'s own worries dissolved seeing ${OtherHerHisTheir} joyous reaction. "Yes," ${PregnantSheHeThey} confirmed, ${PregnantHerHisTheir} smile mirroring ${OtherHersHisTheirs}. "We are." ${OtherName} squeezed ${PregnantHerHisTheir} hands, ${OtherHerHisTheir} eyes full of love for ${PregnantHerHimThem} and the life growing within ${PregnantHerHimThem}. "I can't wait," ${OtherSheHeThey} said, ${OtherHerHisTheir} voice thick with emotion. They sat there, hands clasped, already imagining their future, a beautiful new chapter unfolding right before their eyes. Their love, already strong, deepened with the promise of their little one, a testament to the incredible journey they were about to embark on together.`; // your happy story here
     } else if (path === 'nervous') {
       page = "c";
-      text = `${OtherName}'s world tilted. ${cap(OtherHerHisTheir)} initial reaction was a surge of pure, unadulterated panic. A baby? Now? 
-${cap(OtherSheHeThey)} loved ${PregnantName} more than anything, and deep down, the idea of having a child with ${PregnantHerHimThem} was a dream ${OtherSheHeThey} secretly harbored. 
-But the practicalities hit ${OtherHerHimThem} like a tidal wave – money, responsibilities, their still-developing careers. 
-Could they even afford a kitten? ${cap(OtherHerHisTheir)} mind raced, a knot forming in ${OtherHerHisTheir} stomach.
-
-${PregnantName} must have seen the fear in ${OtherHerHisTheir} eyes. 
-${cap(PregnantSheHeThey)} reached across the table, taking ${OtherHerHisTheir} hand. 
-"I know it’s a lot, ${OtherName}. I'm scared too." 
-
-They talked for what felt like hours, discussing their worries, their hopes, and the sheer daunting nature of it all. 
-${cap(OtherSheHeThey)} openly admitted ${OtherHerHisTheir} financial anxieties, and ${PregnantSheHeThey} acknowledged them, ${PregnantHerHisTheir} understanding gaze unwavering.
-
-Slowly, as they spoke, the initial panic in ${OtherName} began to subside, replaced by a quiet determination. 
-${cap(OtherSheHeThey)} looked at ${PregnantName}, at ${PregnantHerHisTheir} hopeful, slightly fragile smile, and knew what ${OtherSheHeThey} wanted. 
-"We'll figure it out, won't we?" ${OtherSheHeThey} said, squeezing ${PregnantHerHisTheir} hand reassuringly. 
-"It won't be easy, but we'll take it one step at a time. Together." 
-
-${PregnantName}'s smile widened, and for the first time that night, a genuine sense of peace settled between them.`; // your nervous story here
+      text = `${OtherName}'s world tilted. ${cap(OtherHerHisTheir)} initial reaction was a surge of pure, unadulterated panic. A baby? Now? ${cap(OtherSheHeThey)} loved ${PregnantName} more than anything, and deep down, the idea of having a child with ${PregnantHerHimThem} was a dream ${OtherSheHeThey} secretly harbored. But the practicalities hit ${OtherHerHimThem} like a tidal wave – money, responsibilities, their still-developing careers. Could they even afford a kitten? ${cap(OtherHerHisTheir)} mind raced, a knot forming in ${OtherHerHisTheir} stomach.
+${PregnantName} must have seen the fear in ${OtherHerHisTheir} eyes. ${cap(PregnantSheHeThey)} reached across the table, taking ${OtherHerHisTheir} hand. "I know it’s a lot, ${OtherName}. I'm scared too." 
+They talked for what felt like hours, discussing their worries, their hopes, and the sheer daunting nature of it all. ${cap(OtherSheHeThey)} openly admitted ${OtherHerHisTheir} financial anxieties, and ${PregnantSheHeThey} acknowledged them, ${PregnantHerHisTheir} understanding gaze unwavering.
+Slowly, as they spoke, the initial panic in ${OtherName} began to subside, replaced by a quiet determination. ${cap(OtherSheHeThey)} looked at ${PregnantName}, at ${PregnantHerHisTheir} hopeful, slightly fragile smile, and knew what ${OtherSheHeThey} wanted. "We'll figure it out, won't we?" ${OtherSheHeThey} said, squeezing ${PregnantHerHisTheir} hand reassuringly. "It won't be easy, but we'll take it one step at a time. Together." ${PregnantName}'s smile widened, and for the first time that night, a genuine sense of peace settled between them.`; // your nervous story here
     } else if (path === 'shock') {
       page = "d";
       text = `${OtherName}'s eyes widened, ${cap(OtherHerHisTheir)} jaw slacked. "Pregnant? Are you serious?" ${cap(OtherSheHeThey)} managed, ${OtherHerHisTheir} voice barely a whisper. ${cap(OtherHerHisTheir)} mind reeled. "Are you... are you sure it's mine?" The words tumbled out before ${OtherSheHeThey} could truly process them, a desperate search for solid ground in a suddenly shifting world. ${PregnantName}’s eyes flashed with anger, the warmth draining from ${PregnantHerHisTheir} face. "${OtherName}!" ${cap(PregnantSheHeThey)} exclaimed, ${PregnantHerHisTheir} voice sharp with hurt.
@@ -207,7 +168,7 @@ Later that night, the weight of the day settled on ${OtherName}. ${cap(OtherSheH
     document.getElementById("copyBuffer").value = text;
 
     storyBox.innerHTML = `
-      <p class="story"><strong>${cap(path)} Path:</strong><br>${text.replace(/\n/g, '<br>')}</p>
+      <p class="story"><strong>${cap(path)} path:</strong><br>${text.replace(/\n/g, '<br>')}</p>
       <button class="storyButton" onclick="copyFromBuffer()">Copy ${cap(path)}</button>
       <button class="storyButton" onclick="goToPage('${page}.html')">Continue ${cap(path)}</button>
     `;

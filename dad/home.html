@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Map</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    img { max-width: 100%; }
+    body { margin: auto; display: block; text-align: center; max-width: 1000px; margin: auto; margin-top: 20px; padding-top: 0px;}
+    .paramDisplay { margin-top: 20px; font-family: sans-serif;}
+    .indexButton {
+      border-radius: 10px;
+      border: 5px solid #e48198;
+      padding: 10px 20px;
+      background: linear-gradient(to bottom, #ffd4a5, #ffa1b9);
+      box-shadow: none;
+      color: #ae0039;
+    }
+    .indexButton:hover {
+      background-color: #36b9c3;
+      color: #ffffff;
+    }
+h2{ background-color: #ffa1b8; padding: 15px; border: 2px solid #ae0039; border-radius: 10px; color: #ae0039;}
+  </style>
+</head>
+<body>
+
+<article style="max-width: 1000px;
+	background-color: #ffcce2;
+	padding: 0px;
+	padding-top: 0px;
+	display: box;
+	margin: auto;">
+<div style="margin: auto; text-align: center; background: #ffe0ee; max-width: 1000px;"><img src="https://i.imgur.com/dUomAD5.png"></div>
+  <div style="padding-left: 15px; padding-right: 15px;"><h2 style="text-align: center; max-width: 1000px;">Choose Your Story</h2></div>
+	
+<hr>
+<br>
+<p style="padding 0px;">Welcome to the image map! Click the prompt you'd like to go to or adjust your parameters.</p>
+      <!-- Display parameters -->
+      <div id="customDisplay" class="paramDisplay"></div>
+
+      <button onclick="goToNextPage()" class="indexButton">Adjust Parameters</button>
+
+    <!-- Image map -->
+    <img src="https://i.imgur.com/KJUrzuz.png" usemap="#storymap" alt="Story Map" style="padding-top: 0px;">
+    <map name="storymap">
+      <area class="map-link" shape="circle" coords="500,238,50" data-target="a.html" alt="Path A">
+
+      <area class="map-link" shape="circle" coords="352,386,50" data-target="b.html" alt="Path B">
+      <area class="map-link" shape="circle" coords="500,384,50" data-target="c.html" alt="Path C">
+
+      <area class="map-link" shape="circle" coords="70,534,50" data-target="e.html" alt="Path E">
+      <area class="map-link" shape="circle" coords="219,534,50" data-target="f.html" alt="Path F">
+      <area class="map-link" shape="circle" coords="368,535,50" data-target="g.html" alt="Path G">
+      <area class="map-link" shape="circle" coords="499,534,50" data-target="h.html" alt="Path H">
+
+      <area class="map-link" shape="circle" coords="140,663,50" data-target="l.html" alt="Path L">
+      <area class="map-link" shape="circle" coords="291,665,50" data-target="m.html" alt="Path M">
+      <area class="map-link" shape="circle" coords="435,659,50" data-target="n.html" alt="Path N">
+
+      <area class="map-link" shape="circle" coords="350,812,50" data-target="r.html" alt="Path R">
+      <area class="map-link" shape="circle" coords="499,811,50" data-target="s.html" alt="Path S">
+    </map>
+</article>
+
+  <!-- Scripts -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    // Display selected parameters
+    const displayHTML = `
+      <strong>Carrying Parent Name:</strong> ${params.get("PregnantName") || "(unknown)"}<br>
+      <strong>Pronouns:</strong> 
+        ${params.get("PregnantSheHeThey") || "(unspecified)"} /
+        ${params.get("PregnantHerHimThem") || "(unspecified)"} /
+        ${params.get("PregnantHerHisTheir") || "(unspecified)"} /
+        ${params.get("PregnantHersHisTheirs") || "(unspecified)"}<br>
+      <strong>Other Parent Name:</strong> ${params.get("OtherName") || "(unknown)"}<br>
+      <strong>Pronouns:</strong> 
+        ${params.get("OtherSheHeThey") || "(unspecified)"} /
+        ${params.get("OtherHerHimThem") || "(unspecified)"} /
+        ${params.get("OtherHerHisTheir") || "(unspecified)"} /
+        ${params.get("OtherHersHisTheirs") || "(unspecified)"}
+    `;
+    document.getElementById("customDisplay").innerHTML = displayHTML;
+
+    // Redirect to fix.html with current parameters
+    function goToNextPage() {
+      window.location.href = `fix.html?${params.toString()}`;
+    }
+
+    // Apply parameters to all image map links
+    const areas = document.querySelectorAll(".map-link");
+    areas.forEach(area => {
+      const target = area.getAttribute("data-target");
+      if (target) {
+        area.href = `${target}?${params.toString()}`;
+      }
+    });
+  </script>
+</body>
+</html>
+

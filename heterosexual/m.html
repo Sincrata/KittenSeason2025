@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id="pageTitle">Prompt Title</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    article {
+      max-width: 600px;
+      margin: auto;
+      display: block;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    .story {
+      margin: 30px auto;
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .button-group {
+      margin-top: 30px;
+    }
+    #customDisplay {
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    
+    #copyBuffer {
+      position: absolute;
+      left: -9999px;
+    }
+  </style>
+</head>
+<body class="prompt">
+<article>
+  <h2 id="promptTitle" class="prompt">Prompt Title</h2>
+  <p>By Tenshilove</p>
+
+  <div id="customDisplay"></div>
+  <button onclick="goToFix()" class="storyButton">Fix Parameters</button>
+  <button onclick="goToPage('home.html')" class="storyButton">To Index</button>
+
+  <div class="story">
+    <div id="storyBox"></div>
+    <button onclick="copyStory()" class="storyButton">Copy Story</button>
+  </div>
+
+  <div id="storyContainer"></div>
+  <div id="storyDisplay"></div>
+  <textarea id="copyBuffer"></textarea>
+</article>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const requiredFields = [
+    "PregnantName", "PregnantSheHeThey", "PregnantHerHimThem",
+    "PregnantHerHisTheir", "PregnantHersHisTheirs",
+    "OtherName", "OtherSheHeThey", "OtherHerHimThem",
+    "OtherHerHisTheir", "OtherHersHisTheirs"
+  ];
+
+  const missing = requiredFields.filter(field => !params.get(field));
+  if (missing.length > 0) {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  const lc = str => (str || "").toLowerCase();
+  const cap = str => (str || "").charAt(0).toUpperCase() + str.slice(1);
+
+  const PregnantName = cap(lc(params.get("PregnantName")));
+  const PregnantSheHeThey = lc(params.get("PregnantSheHeThey"));
+  const PregnantHerHimThem = lc(params.get("PregnantHerHimThem"));
+  const PregnantHerHisTheir = lc(params.get("PregnantHerHisTheir"));
+  const PregnantHersHisTheirs = lc(params.get("PregnantHersHisTheirs"));
+
+  const OtherName = cap(lc(params.get("OtherName")));
+  const OtherSheHeThey = lc(params.get("OtherSheHeThey"));
+  const OtherHerHimThem = lc(params.get("OtherHerHimThem"));
+  const OtherHerHisTheir = lc(params.get("OtherHerHisTheir"));
+  const OtherHersHisTheirs = lc(params.get("OtherHersHisTheirs"));
+
+  let PregnantIsAre = "is", PregnantWasWere = "was", PregnantHasHave = "has", PregnantDoesDo = "does";
+  let OtherIsAre = "is", OtherWasWere = "was", OtherHasHave = "has", OtherDoesDo = "does";
+
+  if (PregnantSheHeThey === "they") {
+    PregnantIsAre = "are"; PregnantWasWere = "were"; PregnantHasHave = "have"; PregnantDoesDo = "do";
+  }
+  if (OtherSheHeThey === "they") {
+    OtherIsAre = "are"; OtherWasWere = "were"; OtherHasHave = "have"; OtherDoesDo = "do";
+  }
+
+
+
+  // ✅ Step 1: Insert your main prompt text here between the ``
+  const storyText = `The air in ${OtherName} and ${PregnantName}’s cozy home practically vibrated with anticipation. Every corner seemed to hum with the quiet promise of a new arrival. ${PregnantName}, blooming in ${PregnantHerHisTheir} third trimester, carried ${PregnantHerHisTheir} precious cargo with a delightful waddle, ${PregnantHerHisTheir} belly a magnificent testament to the miracle unfolding within. ${cap(PregnantHerHisTheir)} due date was drawing near, and the excitement between the expectant parents was a palpable, joyful current that flowed through their days. They had been dreaming of this moment for years, picturing their future as a family of three, and the reality of it was almost too wonderful to grasp.
+In these final weeks, their lives had transformed into a whirlwind of delightful last-minute preparations. The nursery, painted in soft, calming greens, was almost complete, boasting a single, beautifully assembled crib draped with a handmade mobile. Tiny bodysuits were folded neatly in drawers, an array of bottles stood ready, and a sleek, single stroller waited patiently by the front door. They had spent weekends carefully selecting the perfect car seat, discussing potential names for their little one, and poring over baby books, all focused on welcoming a child. Their discussions revolved around singleton sleep schedules, feeding routines, and the particular joy of holding their baby for the very first time. Every decision, every purchase, every hopeful conversation centered around the arrival of their singular, precious bundle of joy. The nesting instinct had hit them both hard, transforming their home into a welcoming haven, perfectly primed for the tender pitter-patter of tiny feet.
+One sunny Tuesday morning, with ${PregnantName} feeling particularly heavy but undeniably thrilled, they made their way to their obstetrician’s office for what they expected to be a routine final check-up. This appointment was meant to be a reassuring confirmation: a final ultrasound to ensure everything was on track, a last glimpse of their beloved baby before the big day. ${OtherName} held ${PregnantName}’s hand as ${PregnantSheHeThey} lay back on the examination table, their eyes fixed on the screen where a grainy, yet undeniably precious, image of their child would soon appear. The familiar swish of gel, the gentle press of the transducer – it was all part of the comforting ritual.
+The doctor, a kind-faced woman with a reassuring smile, began ${PregnantHerHisTheir} scan. ${cap(PregnantHerHisTheir)} brow furrowed slightly, then ${PregnantSheHeThey} paused, ${PregnantHerHisTheir} eyes widening almost imperceptibly as ${PregnantSheHeThey} maneuvered the device. ${OtherName} and ${PregnantName} exchanged a glance, a tiny ripple of confusion passing between them. Was everything okay? "Well now," the doctor chuckled softly, a note of pleasant surprise in ${PregnantHerHisTheir} voice. ${cap(PregnantSheHeThey)} adjusted the screen, zoomed in, and then slowly swiveled it to face the stunned couple. "It seems we have a bit of a surprise for you two."
+On the screen, clear as day, were two distinct forms. Two tiny heads, two sets of squiggly limbs, two strong, rhythmic heartbeats. The doctor pointed, ${PregnantHerHisTheir} smile broadening. "Congratulations, ${OtherName} and ${PregnantName}. It looks like you're not just having a baby. You're having twins!"
+The words hung in the air, a delightful, utterly staggering bomb that exploded in their quiet anticipation. ${PregnantName}’s jaw dropped, ${PregnantHerHisTheir} hand flying to ${PregnantHerHisTheir} mouth, ${PregnantHerHisTheir} eyes wide with astonishment. ${OtherName} blinked, then blinked again, leaning closer to the screen as if to confirm the impossible. "Twins?!" ${OtherSheHeThey} stammered, the word barely a whisper, a mix of disbelief and dawning wonder. "We're having twins?!"
+The immediate shock quickly transformed into a dizzying rush of realization. Twins! They’re having twins! Their minds raced through the meticulous preparations they had made, all painstakingly arranged for one. One crib, one stroller, one car seat, one set of tiny clothes, one name they had agonizingly narrowed down. Now, it meant twice the supplies, two cribs where one stood proudly, two strollers (how would they even fit?), two car seats, two of every single item they had carefully bought one of. Two babies! It couldn't be, could it? Yet, there they were, undeniably present on the ultrasound screen, two distinct little lives.
+A wave of panic washed over them. How had they not known? How would they manage? 
+
+Question 
+How do they react? Happy or Upset?
+`.trim();
+  document.getElementById("storyBox").innerText = storyText;
+
+
+
+
+  // ✅ Step 2: Define your options in one place
+  // Each option has 3 things to fill in. Remove the code block for unused options.
+  // 1: fill in the "Option X" after the "label:" This will be what displays on the options buttons
+  // 2: fill in the text for the options in between the `` after the "response"
+  // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
+  const options = {
+    "option1": {
+      label: "Happy",
+      response: `The initial shock quickly gave way to elation. The idea of two babies instead of one was daunting, yes. They knew there would be double the sleepless nights, double the feedings, double the diapers, and certainly double the expenses. It would undoubtedly bring challenges they hadn't mentally prepared for. But as they looked at each other, their eyes shining with shared excitement, an incredible sense of optimism settled in.
+"We can do this," ${OtherName} whispered, squeezing ${PregnantName}'s hand reassuringly.
+${PregnantName} nodded, a wide, radiant smile lighting up ${PregnantHerHisTheir} face. "Of course, we can," ${PregnantSheHeThey} echoed, ${PregnantHerHisTheir} voice filled with a newfound resolve. "Together."
+The unexpected news didn't diminish their joy; it magnified it. They walked out of the clinic that day with lighter steps and fuller hearts, ready to embrace the wonderful, chaotic, and incredibly blessed adventure that lay ahead. ${OtherName} and ${PregnantName}, soon to be parents to not one, but two precious miracles, knew that with love and teamwork, they were more than ready for this beautiful, double-sized future.
+`,
+      next: "r"
+    }
+
+
+    ,"option2": {
+      label: "Upset",
+      response: `For ${OtherName} and ${PregnantName}, the news didn't bring the expected rush of joy. Instead, a wave of profound shock washed over them, quickly followed by a heavy shroud of stress and nervousness. Two babies? They had barely wrapped their heads around the idea of one! How would they manage? The financial implications, the sleepless nights, the sheer logistics of two newborns – it all felt overwhelmingly impossible. The beautiful dream of welcoming one child now seemed to fragment under the weight of an unexpected double reality. Any potential happiness was completely overshadowed by a looming cloud of anxiety. They simply didn't feel ready.
+They left the clinic in a daze, the city sounds fading into a muted hum around them. The drive home was silent, filled only with the deafening echoes of "twins." Once inside the sanctuary of their own home, the dam broke. Sitting together, they finally allowed the tears to fall, sharing the raw, unvarnished fear and worry that had consumed them. ${OtherName} held ${PregnantName} close as they vocalized their deepest anxieties: "Are we ready for this?" "Can we handle it?" "How will we ever cope?"
+But as they poured out their hearts to each other, something remarkable began to happen. The shared vulnerability, the release of pent-up fear, acted like a pressure valve. The immense weight that had settled upon them began to lighten, ever so slightly. Through their tears, a flicker of clarity, then determination, started to emerge. They looked at each other, still scared, but also undeniably united. Yes, it would be incredibly hard. Yes, they felt unprepared. But these were their babies. Two precious lives entrusted to them. They might not feel ready now, but they would become ready. They would learn, adapt, and love, making things work, no matter the challenges that lay ahead. The path ahead was daunting, but holding hands, they knew they wouldn't walk it alone, ready to welcome their double blessing with fierce, unwavering love.
+`,
+      next: "s"
+    }
+
+
+
+  };
+
+
+  const container = document.getElementById("storyContainer");
+  for (const key in options) {
+    const btn = document.createElement("button");
+    btn.className = "storyButton";
+    btn.textContent = options[key].label;
+    btn.onclick = () => showStory(key);
+    container.appendChild(btn);
+  }
+
+  // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
+  const promptTitle = "Twins!";
+
+  
+  document.getElementById("pageTitle").innerText = promptTitle;
+  document.getElementById("promptTitle").innerText = promptTitle;
+
+
+  const displayHTML = `
+    <strong>Carrying Parent Name:</strong> ${PregnantName}<br>
+    <strong>Pronouns:</strong> 
+      ${PregnantSheHeThey} /
+      ${PregnantHerHimThem} /
+      ${PregnantHerHisTheir} /
+      ${PregnantHersHisTheirs}<br>
+    <strong>Other Parent Name:</strong> ${OtherName}<br>
+    <strong>Pronouns:</strong> 
+      ${OtherSheHeThey} /
+      ${OtherHerHimThem} /
+      ${OtherHerHisTheir} /
+      ${OtherHersHisTheirs}
+  `;
+  document.getElementById("customDisplay").innerHTML = displayHTML;
+
+  function goToFix() {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  function goToPage(page) {
+    window.location.href = `${page}?${params.toString()}`;
+  }
+
+  function copyStory() {
+    const story = document.getElementById("storyBox").innerText;
+    navigator.clipboard.writeText(story)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy story.");
+        console.error(err);
+      });
+  }
+
+  function copyFromBuffer() {
+    const buffer = document.getElementById("copyBuffer");
+    buffer.select();
+    buffer.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(buffer.value)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy.");
+        console.error(err);
+      });
+  }
+
+  function showStory(key) {
+    const option = options[key];
+    if (!option) return;
+
+    document.getElementById("copyBuffer").value = option.response;
+
+    document.getElementById("storyDisplay").innerHTML = `
+      <p class="story"><strong>${option.label} path:</strong><br>${option.response.replace(/\n/g, '<br>')}</p>
+      <button class="storyButton" onclick="copyFromBuffer()">Copy ${option.label}</button>
+      <button class="storyButton" onclick="goToPage('${option.next}.html')">Continue ${option.label}</button>
+    `;
+  }
+</script>
+</body>
+</html>

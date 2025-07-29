@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id="pageTitle">Prompt Title</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    article {
+      max-width: 600px;
+      margin: auto;
+      display: block;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    .story {
+      margin: 30px auto;
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .button-group {
+      margin-top: 30px;
+    }
+    #customDisplay {
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    
+    #copyBuffer {
+      position: absolute;
+      left: -9999px;
+    }
+  </style>
+</head>
+<body class="prompt">
+<article>
+  <h2 id="promptTitle" class="prompt">Prompt Title</h2>
+  <p>By Tenshilove</p>
+
+  <div id="customDisplay"></div>
+  <button onclick="goToFix()" class="storyButton">Fix Parameters</button>
+  <button onclick="goToPage('home.html')" class="storyButton">To Index</button>
+
+  <div class="story">
+    <div id="storyBox"></div>
+    <button onclick="copyStory()" class="storyButton">Copy Story</button>
+  </div>
+
+  <div id="storyContainer"></div>
+  <div id="storyDisplay"></div>
+  <textarea id="copyBuffer"></textarea>
+</article>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const requiredFields = [
+    "PregnantName", "PregnantSheHeThey", "PregnantHerHimThem",
+    "PregnantHerHisTheir", "PregnantHersHisTheirs",
+    "OtherName", "OtherSheHeThey", "OtherHerHimThem",
+    "OtherHerHisTheir", "OtherHersHisTheirs"
+  ];
+
+  const missing = requiredFields.filter(field => !params.get(field));
+  if (missing.length > 0) {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  const lc = str => (str || "").toLowerCase();
+  const cap = str => (str || "").charAt(0).toUpperCase() + str.slice(1);
+
+  const PregnantName = cap(lc(params.get("PregnantName")));
+  const PregnantSheHeThey = lc(params.get("PregnantSheHeThey"));
+  const PregnantHerHimThem = lc(params.get("PregnantHerHimThem"));
+  const PregnantHerHisTheir = lc(params.get("PregnantHerHisTheir"));
+  const PregnantHersHisTheirs = lc(params.get("PregnantHersHisTheirs"));
+
+  const OtherName = cap(lc(params.get("OtherName")));
+  const OtherSheHeThey = lc(params.get("OtherSheHeThey"));
+  const OtherHerHimThem = lc(params.get("OtherHerHimThem"));
+  const OtherHerHisTheir = lc(params.get("OtherHerHisTheir"));
+  const OtherHersHisTheirs = lc(params.get("OtherHersHisTheirs"));
+
+  let PregnantIsAre = "is", PregnantWasWere = "was", PregnantHasHave = "has", PregnantDoesDo = "does";
+  let OtherIsAre = "is", OtherWasWere = "was", OtherHasHave = "has", OtherDoesDo = "does";
+
+  if (PregnantSheHeThey === "they") {
+    PregnantIsAre = "are"; PregnantWasWere = "were"; PregnantHasHave = "have"; PregnantDoesDo = "do";
+  }
+  if (OtherSheHeThey === "they") {
+    OtherIsAre = "are"; OtherWasWere = "were"; OtherHasHave = "have"; OtherDoesDo = "do";
+  }
+
+
+
+  // ✅ Step 1: Insert your main prompt text here between the ``
+  const storyText = `The air in ${OtherName} and ${PregnantName}’s home hummed with a unique blend of anticipation and profound love. ${PregnantName}, wonderfully round and heavy with child in ${PregnantHerHisTheir} third trimester, moved with a gentle grace. The due date, once a distant point on the calendar, was now just a whisper away, hanging in the air like a cherished secret. They felt ready, truly ready, not just with their nursery meticulously prepared and their hospital bag packed, but deep in their hearts. An eager impatience fluttered within them, a desire to finally meet the tiny kitten who had already filled their lives with so much joy and wonder.
+As the days dwindled, a significant milestone arrived: ${OtherName}’s paternity leave. It was a moment they had both been looking forward to, a tangible sign that their new chapter was truly beginning. To celebrate this quiet, momentous occasion, they opted for an intimate home date. The evening unfolded with the simple perfection of shared comfort: a stack of their favorite movies, the undeniable guilty pleasure of a large, cheesy pizza, and the soft glow of lamplight. Snuggled together on the couch, the weight of daily life melted away, leaving only the profound, enveloping warmth of their love for one another. It was a precious pause before the beautiful chaos, a final embrace of their lives as a duo before becoming a family.
+The next few days, despite the underlying excitement, seemed to stretch lazily, each hour feeling longer than the last. They busied themselves with last-minute preparations: washing tiny clothes, arranging the few remaining items in the nursery, and double-checking their hospital bag for the tenth time. But mostly, they simply spent time together, savoring the quiet moments, holding hands, and sharing hopeful glances. They walked around their neighborhood, chatted about their hopes and dreams for their baby, and just waited. The clock's hands, in their minds, moved at a snail's pace, each tick a gentle reminder that their little one was on their own schedule.
+Then, when they least expected it, but perhaps at the most opportune moment, the quiet waiting came to an end. ${PregnantName} was enjoying a peaceful soak, the warm, bubbly water lapping gently against ${PregnantHerHisTheir} protruding belly as ${PregnantSheHeThey} hummed a soft tune to ${PregnantHerHimThem}self. It was a moment of pure, calming solitude, a brief respite from the ever-present anticipation. Suddenly, a distinct sensation, sharp and undeniable, rippled through ${PregnantHerHimThem}. ${cap(PregnantSheHeThey)} winced, feeling the unmistakable clench of a contraction.
+“${OtherName}!” ${PregnantSheHeThey} called, ${PregnantHerHisTheir} voice a mix of surprise and exhilaration, the sudden urgency cutting through the peaceful quiet.
+${OtherName}, ever attentive, burst into the bathroom in an instant, ${OtherHerHisTheir} eyes wide with concern that quickly transformed into overflowing excitement as ${OtherSheHeThey} registered the look on ${PregnantHerHisTheir} face. The air crackled with a new energy. There ${OtherWasWere} a flurry of movement as ${OtherSheHeThey} carefully helped ${PregnantName} towel off, ${PregnantHerHisTheir} body heavy but agile with the adrenaline coursing through ${PregnantHerHimThem}. Within moments, ${PregnantSheHeThey} ${PregnantWasWere} slipping into a comfortable nightdress, ${PregnantHerHisTheir} focus already sharpening. They were excited, undeniably frantic, but remarkably, they had things under control. This was it!
+The drive to the hospital was a unique blend of tension and triumph. ${PregnantName} leaned into each contraction, focusing on the calm, rhythmic breathing they had practiced, while ${OtherName} offered words of encouragement, ${OtherHerHisTheir} hand firmly grasping ${PregnantHerHisTheir}s. Traffic, thankfully, was light; it was mid-morning, and the usual rush had subsided, allowing them a relatively smooth journey. Each turn of the wheel brought them closer to their destination, closer to meeting their child.
+Upon reaching the hospital, time seemed to pick up an incredible pace. To ${OtherName} and ${PregnantName}, every second felt like it was racing by, a blur of new faces, quick questions, and medical checks. In reality, ${PregnantName}’s labor, while intense, was manageable, lasting nearly two hours from the first contraction to the final push. But in the heightened reality of the moment, it felt like mere minutes.
+Then came the words they had longed to hear, delivered calmly by the doctor but echoing like a grand announcement in the room: "It's time to push." An overwhelming wave of excitement washed over ${OtherName} and ${PregnantName}, a surge of adrenaline and profound joy. This was it, the culmination of nine months of waiting, preparing, and dreaming. The delivery was remarkably smooth, a testament to ${PregnantName}’s strength and the coordinated efforts of the medical team. In a matter of minutes, a new, precious cry filled the room, a sound that instantly transformed their world.
+Soon after, they were back in their quiet hospital room, their darling baby nestled securely in ${PregnantName}’s arms. The tiny being, a miracle made real, looked up at them with eyes they knew they would never tire of exploring. ${OtherName}, tears glistening in ${OtherHerHisTheir} eyes, carefully lay beside ${PregnantName}, ${OtherHerHisTheir} hand reaching out to gently run a finger over their precious baby’s soft, downy head. It was a touch so tender, so full of love, that it spoke volumes. As their gazes met over their newborn, the two new parents shared a tender kiss, a silent promise, a shared understanding of the profound shift that had just occurred. In that moment, with their child safe in their arms, surrounded by the quiet hum of the hospital, everything felt utterly, perfectly complete.
+`.trim();
+  document.getElementById("storyBox").innerText = storyText;
+
+
+
+
+
+  const options = {
+    "option1": {
+      label: "Complete",
+      response: `You're all done!`,
+      next: "home"
+    }
+
+
+  };
+
+
+  const container = document.getElementById("storyContainer");
+  for (const key in options) {
+    const btn = document.createElement("button");
+    btn.className = "storyButton";
+    btn.textContent = options[key].label;
+    btn.onclick = () => showStory(key);
+    container.appendChild(btn);
+  }
+
+  // ✅ Step 2: Insert the Prompt Title: Conception, Happy, Promotion, etc
+  const promptTitle = "Perfect Delivery!";
+
+  
+  document.getElementById("pageTitle").innerText = promptTitle;
+  document.getElementById("promptTitle").innerText = promptTitle;
+
+
+  const displayHTML = `
+    <strong>Carrying Parent Name:</strong> ${PregnantName}<br>
+    <strong>Pronouns:</strong> 
+      ${PregnantSheHeThey} /
+      ${PregnantHerHimThem} /
+      ${PregnantHerHisTheir} /
+      ${PregnantHersHisTheirs}<br>
+    <strong>Other Parent Name:</strong> ${OtherName}<br>
+    <strong>Pronouns:</strong> 
+      ${OtherSheHeThey} /
+      ${OtherHerHimThem} /
+      ${OtherHerHisTheir} /
+      ${OtherHersHisTheirs}
+  `;
+  document.getElementById("customDisplay").innerHTML = displayHTML;
+
+  function goToFix() {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  function goToPage(page) {
+    window.location.href = `${page}?${params.toString()}`;
+  }
+
+  function copyStory() {
+    const story = document.getElementById("storyBox").innerText;
+    navigator.clipboard.writeText(story)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy story.");
+        console.error(err);
+      });
+  }
+
+  function copyFromBuffer() {
+    const buffer = document.getElementById("copyBuffer");
+    buffer.select();
+    buffer.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(buffer.value)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy.");
+        console.error(err);
+      });
+  }
+
+  function showStory(key) {
+    const option = options[key];
+    if (!option) return;
+
+    document.getElementById("copyBuffer").value = option.response;
+
+    document.getElementById("storyDisplay").innerHTML = `
+      <p class="story"><strong>${option.label} path:</strong><br>${option.response.replace(/\n/g, '<br>')}</p>
+      <button class="storyButton" onclick="copyFromBuffer()">Copy ${option.label}</button>
+      <button class="storyButton" onclick="goToPage('${option.next}.html')">Continue ${option.label}</button>
+    `;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id="pageTitle">Prompt Title</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    article {
+      max-width: 600px;
+      margin: auto;
+      display: block;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    .story {
+      margin: 30px auto;
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .button-group {
+      margin-top: 30px;
+    }
+    #customDisplay {
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    
+    #copyBuffer {
+      position: absolute;
+      left: -9999px;
+    }
+  </style>
+</head>
+<body class="prompt">
+<article>
+  <h2 id="promptTitle" class="prompt">Prompt Title</h2>
+  <p>By Tenshilove</p>
+
+  <div id="customDisplay"></div>
+  <button onclick="goToFix()" class="storyButton">Fix Parameters</button>
+  <button onclick="goToPage('home.html')" class="storyButton">To Index</button>
+
+  <div class="story">
+    <div id="storyBox"></div>
+    <button onclick="copyStory()" class="storyButton">Copy Story</button>
+  </div>
+
+  <div id="storyContainer"></div>
+  <div id="storyDisplay"></div>
+  <textarea id="copyBuffer"></textarea>
+</article>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const requiredFields = [
+    "PregnantName", "PregnantSheHeThey", "PregnantHerHimThem",
+    "PregnantHerHisTheir", "PregnantHersHisTheirs",
+    "OtherName", "OtherSheHeThey", "OtherHerHimThem",
+    "OtherHerHisTheir", "OtherHersHisTheirs"
+  ];
+
+  const missing = requiredFields.filter(field => !params.get(field));
+  if (missing.length > 0) {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  const lc = str => (str || "").toLowerCase();
+  const cap = str => (str || "").charAt(0).toUpperCase() + str.slice(1);
+
+  const PregnantName = cap(lc(params.get("PregnantName")));
+  const PregnantSheHeThey = lc(params.get("PregnantSheHeThey"));
+  const PregnantHerHimThem = lc(params.get("PregnantHerHimThem"));
+  const PregnantHerHisTheir = lc(params.get("PregnantHerHisTheir"));
+  const PregnantHersHisTheirs = lc(params.get("PregnantHersHisTheirs"));
+
+  const OtherName = cap(lc(params.get("OtherName")));
+  const OtherSheHeThey = lc(params.get("OtherSheHeThey"));
+  const OtherHerHimThem = lc(params.get("OtherHerHimThem"));
+  const OtherHerHisTheir = lc(params.get("OtherHerHisTheir"));
+  const OtherHersHisTheirs = lc(params.get("OtherHersHisTheirs"));
+
+  let PregnantIsAre = "is", PregnantWasWere = "was", PregnantHasHave = "has", PregnantDoesDo = "does";
+  let OtherIsAre = "is", OtherWasWere = "was", OtherHasHave = "has", OtherDoesDo = "does";
+
+  if (PregnantSheHeThey === "they") {
+    PregnantIsAre = "are"; PregnantWasWere = "were"; PregnantHasHave = "have"; PregnantDoesDo = "do";
+  }
+  if (OtherSheHeThey === "they") {
+    OtherIsAre = "are"; OtherWasWere = "were"; OtherHasHave = "have"; OtherDoesDo = "do";
+  }
+
+
+
+  // ✅ Step 1: Insert your main prompt text here between the ``
+  const storyText = `${PregnantName} and ${OtherName} were navigating the final stretch of pregnancy, a mix of exhaustion and boundless excitement. ${PregnantName}, in ${PregnantHerHisTheir} third trimester, was quite literally carrying a heavy load, but the thought of meeting their baby kept them going. Things had been stressful, yet by supporting one another and taking things one step at a time, they felt prepared for what was to come, keenly anticipating their little one’s arrival and, frankly, the end of pregnancy itself.
+Feeling the time coming soon, ${PregnantName} started to get nervous. There was so much ${PregnantSheHeThey} wanted to do before the baby was born. Though a lot of things could be ordered to the house, ${PregnantSheHeThey} couldn't avoid shopping in person for some of the last-minute items ${PregnantSheHeThey} wanted for the baby. She loved ${OtherName}, but ${PregnantSheHeThey} didn’t trust ${OtherHerHimThem} to pick out the "very perfect" things.
+One day, the two were on their way home from the store together with a car full of infant supplies when the car suddenly sputtered and stopped on the side of the road. The car wouldn't start, and it was very hot outside. For a while they tried to get it to start, but the heat started to get to ${PregnantName}. She grew irritable and began to fight with ${OtherName}. ${PregnantName} insisted they should call a tow, but ${OtherName} argued that was too expensive for how close they were to home. They were only a mile or so away from the house, but ${PregnantName} wasn’t able to walk that far – not in this heat, not this heavily pregnant. ${OtherName} kept trying to get the car to start, but ${PregnantName} was sweating profusely, and ${OtherName} was genuinely concerned about the worsening heat.
+The sun beat down relentlessly, making the inside of the stranded car feel like an oven. ${PregnantName} fanned ${PregnantHerHimThem}self with a baby blanket, ${cap(PregnantHerHisTheir)} patience wearing thin. "${OtherName}, please! I can't breathe in here. Just call the tow truck. We'll figure out the money later, but I need to get out of this heat."
+ ${OtherName}, leaning over the engine, sighed, ${OtherHerHisTheir} brow slick with sweat. ${cap(OtherSheHeThey)} knew ${PregnantSheHeThey} ${PregnantWasWere} right, but the thought of another unexpected expense was daunting. Still, one look at ${PregnantName}'s flushed, discomforted face erased ${OtherHerHisTheir} financial concerns. Her well-being, and the baby's, was paramount.
+Question 
+What does ${OtherName} do? Carry or Call a tow truck?
+`.trim();
+  document.getElementById("storyBox").innerText = storyText;
+
+
+
+
+  // ✅ Step 2: Define your options in one place
+  // Each option has 3 things to fill in. Remove the code block for unused options.
+  // 1: fill in the "Option X" after the "label:" This will be what displays on the options buttons
+  // 2: fill in the text for the options in between the `` after the "response"
+  // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
+  const options = {
+    "option1": {
+      label: "Carry",
+      response: `${OtherName}, seeing ${PregnantName} wilting and genuinely worried about the heat's impact on ${PregnantHerHimThem} and the baby, knew ordinary solutions wouldn't cut it. ${cap(OtherSheHeThey)} made a snap decision. Locking up the car, ${OtherSheHeThey} turned to ${PregnantName}. With a gentle grin, ${OtherSheHeThey} scooped ${PregnantHerHimThem} up into ${OtherHerHisTheir} arms, bridal style. "Alright, my love," ${OtherSheHeThey} declared, "we're walking this home." And so, like a modern-day knight, ${OtherName} began trudging down the road, carrying ${OtherHerHisTheir} beloved princess and their unborn child towards their neighborhood. It wasn't long before a true good Samaritan, witnessing this heartwarming and slightly comical scene, pulled over. The kind stranger offered them a ride, and the blast of air conditioning in their car was nothing short of heaven for ${PregnantName}. Once ${PregnantName} and the baby were safely home, cooled down with water and resting, ${OtherName}, resolute, made ${OtherHerHisTheir} way back to their stranded vehicle. After another hour of tinkering and sheer willpower, the engine finally sputtered to life, and ${OtherSheHeThey} drove it home, triumphant. They were both exhausted but incredibly grateful, their bond strengthened by another adventure survived together.
+`,
+      next: "r"
+    }
+
+
+    ,"option2": {
+      label: "Call a tow truck",
+      response: `${PregnantName} was clearly overheating, ${PregnantHerHisTheir} face flushed and ${PregnantHerHisTheir} movements sluggish. ${OtherName}'s concern mounted with every passing second; the expense suddenly seemed trivial compared to ${PregnantName}'s discomfort and the potential risk to their baby.
+Taking a deep breath, ${OtherName} finally put down ${OtherHerHisTheir} tools. "You're right," ${OtherSheHeThey} said, the words a little tough to get out, but ${OtherHerHisTheir} resolve was firm. "Your health, and the baby's, are way more important than a few extra bucks." ${OtherSheHeThey} pulled out ${OtherHerHisTheir} phone and, swallowing ${OtherHerHisTheir} pride, called for a tow. To their relief, only fifteen minutes later, a large tow truck pulled up. Soon, their sputtering car was hitched to the back, and ${PregnantName} and ${OtherName} were gratefully climbing into the blessed air-conditioned cab. It was indeed a remarkably pricey mile, but as ${PregnantName} started to cool down, ${PregnantSheHeThey} knew it was entirely worth every penny.
+Once they were safely home and ${PregnantName} was comfortably settled, the tension from the roadside ordeal fully dissipated. She looked at ${OtherName}, who was still slightly flushed from the heat and the stress, and offered ${OtherHerHimThem} a heartfelt smile. "Thank you, ${OtherName}," ${PregnantSheHeThey} said, reaching for ${OtherHerHisTheir} hand. "Thank you for putting me and the baby first, even when it was frustrating. You always do." ${OtherName} squeezed ${PregnantHerHisTheir} hand, a soft smile returning to ${OtherHerHisTheir} face. They were so close now, so incredibly close, and moments like these only reinforced their readiness for the wonderful, chaotic adventure that lay just around the corner.
+`,
+      next: "s"
+    }
+
+
+  };
+
+
+  const container = document.getElementById("storyContainer");
+  for (const key in options) {
+    const btn = document.createElement("button");
+    btn.className = "storyButton";
+    btn.textContent = options[key].label;
+    btn.onclick = () => showStory(key);
+    container.appendChild(btn);
+  }
+
+  // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
+  const promptTitle = "Carry You Home";
+
+  
+  document.getElementById("pageTitle").innerText = promptTitle;
+  document.getElementById("promptTitle").innerText = promptTitle;
+
+
+  const displayHTML = `
+    <strong>Carrying Parent Name:</strong> ${PregnantName}<br>
+    <strong>Pronouns:</strong> 
+      ${PregnantSheHeThey} /
+      ${PregnantHerHimThem} /
+      ${PregnantHerHisTheir} /
+      ${PregnantHersHisTheirs}<br>
+    <strong>Other Parent Name:</strong> ${OtherName}<br>
+    <strong>Pronouns:</strong> 
+      ${OtherSheHeThey} /
+      ${OtherHerHimThem} /
+      ${OtherHerHisTheir} /
+      ${OtherHersHisTheirs}
+  `;
+  document.getElementById("customDisplay").innerHTML = displayHTML;
+
+  function goToFix() {
+    window.location.href = `fix.html?${params.toString()}`;
+  }
+
+  function goToPage(page) {
+    window.location.href = `${page}?${params.toString()}`;
+  }
+
+  function copyStory() {
+    const story = document.getElementById("storyBox").innerText;
+    navigator.clipboard.writeText(story)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy story.");
+        console.error(err);
+      });
+  }
+
+  function copyFromBuffer() {
+    const buffer = document.getElementById("copyBuffer");
+    buffer.select();
+    buffer.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(buffer.value)
+      .then(() => alert("Story copied to clipboard!"))
+      .catch(err => {
+        alert("Failed to copy.");
+        console.error(err);
+      });
+  }
+
+  function showStory(key) {
+    const option = options[key];
+    if (!option) return;
+
+    document.getElementById("copyBuffer").value = option.response;
+
+    document.getElementById("storyDisplay").innerHTML = `
+      <p class="story"><strong>${option.label} path:</strong><br>${option.response.replace(/\n/g, '<br>')}</p>
+      <button class="storyButton" onclick="copyFromBuffer()">Copy ${option.label}</button>
+      <button class="storyButton" onclick="goToPage('${option.next}.html')">Continue ${option.label}</button>
+    `;
+  }
+</script>
+</body>
+</html>

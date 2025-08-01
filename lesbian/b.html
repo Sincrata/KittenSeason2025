@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title id="pageTitle">Prompt Title</title>
+
+
+
+
+
+
+<!-- Step 1 replace the title here with the title of the prompt --!>
+  <title>Neuroticism</title>
+
+
   <link rel="stylesheet" href="style.css">
   <style>
     article {
@@ -31,16 +40,19 @@
       font-size: 16px;
       line-height: 1.5;
     }
-    
-    #copyBuffer {
-      position: absolute;
-      left: -9999px;
-    }
   </style>
 </head>
 <body class="prompt">
 <article>
-  <h2 id="promptTitle" class="prompt">Prompt Title</h2>
+
+
+
+
+
+
+<!-- Step 2 replace the title here with the title of the prompt --!>
+  <h2 class="prompt">Neuroticism</h2>
+
   <p>By Tenshilove</p>
 
   <div id="customDisplay"></div>
@@ -52,9 +64,26 @@
     <button onclick="copyStory()" class="storyButton">Copy Story</button>
   </div>
 
-  <div id="storyContainer"></div>
+
+
+
+
+<!-- Step 3 replace the options with the response of the prompts--!>
+<!-- Note you have 6 total things to replace here. The lower case ones should be lower case and the uppercase ones are what is displayed on the buttons--!>
+<!-- Make note of the lower case values you put in the parenthesis. You will need to put those exact values in again elsewhere. Must be exact.--!>
+<!-- If you have fewer than three choices,cComment out unused buttons with the symbols surrounding these sentences. --!>
+<!-- There is an example button commented out for you.--!>
+  <div id="storyContainer">
+    <button onclick="showStory('join in')" class="storyButton">Join In</button>
+    <button onclick="showStory('ignore it')" class="storyButton">Ignore It</button>
+    <button onclick="showStory('look for help')" class="storyButton">Look For Help</button>
+
+    <!-- Example of a commented out button. Or you can just delete the line. That works too.--!>
+    <!-- <button onclick="showStory('option 4')" class="storyButton">Example Button</button> --!>
+  </div>
+
   <div id="storyDisplay"></div>
-  <textarea id="copyBuffer"></textarea>
+  <textarea id="copyBuffer" style="position:absolute; left:-9999px;"></textarea>
 </article>
 
 <script>
@@ -87,71 +116,46 @@
   const OtherHerHisTheir = lc(params.get("OtherHerHisTheir"));
   const OtherHersHisTheirs = lc(params.get("OtherHersHisTheirs"));
 
-  let PregnantIsAre = "is", PregnantWasWere = "was", PregnantHasHave = "has", PregnantDoesDo = "does";
-  let OtherIsAre = "is", OtherWasWere = "was", OtherHasHave = "has", OtherDoesDo = "does";
+  let PregnantIsAre = "is";
+let PregnantWasWere = "was";
+let OtherIsAre = "is";
+let OtherWasWere = "was";
+let PregnantHasHave = "has";
+let PregnantDoesDo = "does";
+let OtherHasHave = "has";
+let OtherDoesDo = "does";
 
-  if (PregnantSheHeThey === "they") {
-    PregnantIsAre = "are"; PregnantWasWere = "were"; PregnantHasHave = "have"; PregnantDoesDo = "do";
-  }
-  if (OtherSheHeThey === "they") {
-    OtherIsAre = "are"; OtherWasWere = "were"; OtherHasHave = "have"; OtherDoesDo = "do";
-  }
+if (PregnantSheHeThey === "they") {
+  PregnantIsAre = "are";
+  PregnantWasWere = "were";
+  PregnantHasHave = "have";
+  PregnantDoesDo = "do";
+}
+
+if (OtherSheHeThey === "they") {
+  OtherIsAre = "are";
+  OtherWasWere = "were";
+  OtherHasHave = "have";
+  OtherDoesDo = "do";
+}
 
 
 
-  // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Insert Prompt Text Here`.trim();
+
+
+
+
+<!-- Step 4. Insert the prompt text here. Inbetween the `` --!>
+  const storyText = `${PregnantName} and ${OtherName} are going to be parents! The first trimester was supposed to be a time of quiet excitement, but for ${PregnantName}, it was quickly turning into a whirlwind of information. Every free moment found ${PregnantHerHimThem}  scrolling through pregnancy blogs or tuning into a new prenatal health podcast.
+Soon, ${PregnantHerHisTheir} newfound knowledge morphed into a strict regimen. ${OtherName} watched as ${PregnantHerHisTheir} meals became meticulously planned, down to the exact percentage of fat. ${cap(PregnantHerHisTheir)} sleep schedule was calculated to the minute, making spontaneous movie nights a thing of the past. "Did you know," ${PregnantSheHeThey}'d often begin, "that eating organic kale at precisely 7 PM can boost XYZ?" ${OtherName} loved ${PregnantHerHimThem}, but these increasingly specific, self-inflicted rules were creating an air of constant stress.
+${cap(OtherSheHeThey)} missed their old easygoing dates, the spontaneous laughter, and just being without a precise schedule. Every suggestion of a late dinner or a casual stroll led to a lecture on optimal nutrient intake or sleep hygiene. ${cap(OtherSheHeThey)} understood ${PregnantHerHisTheir} desire to be a good parent, but the constant worry and these neurotic behaviors were starting to cast a long shadow over their relationship. ${cap(OtherSheHeThey)}  tried to be patient, to empathize, but it was getting harder.
+${OtherName} pictured their future – filled with joy, yes, but also with an endless parade of health mandates and dietary restrictions. ${cap(OtherSheHeThey)} yearned for the simple fun they used to share. One more mention of a ‘superfood smoothie’ or a perfectly timed nap, and ${OtherSheHeThey}  felt a sharp knot of annoyance tightening in ${OtherHerHisTheir} chest. ${cap(OtherSheHeThey)}  ${OtherWasWere} on the verge of snapping, unsure how much more ${OtherSheHeThey} could take of the stress ${PregnantName} was unknowingly creating for them both.
+ 
+Question 
+What does ${OtherName} do? Join In, Ignore It, Seek Help
+`.trim();
+
   document.getElementById("storyBox").innerText = storyText;
-
-
-
-
-  // ✅ Step 2: Define your options in one place
-  // Each option has 3 things to fill in. Remove the code block for unused options.
-  // 1: fill in the "Option X" after the "label:" This will be what displays on the options buttons
-  // 2: fill in the text for the options in between the `` after the "response"
-  // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
-  const options = {
-    "option1": {
-      label: "Option 1",
-      response: `Option 1 response here`,
-      next: "z"
-    }
-
-
-    ,"option2": {
-      label: "Option 2",
-      response: `Option 2 response here`,
-      next: "z"
-    }
-
-
-    ,"option3": {
-      label: "Option 3",
-      response: `Option 3 response here`,
-      next: "z"
-    }
-
-
-  };
-
-
-  const container = document.getElementById("storyContainer");
-  for (const key in options) {
-    const btn = document.createElement("button");
-    btn.className = "storyButton";
-    btn.textContent = options[key].label;
-    btn.onclick = () => showStory(key);
-    container.appendChild(btn);
-  }
-
-  // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title Here";
-
-  
-  document.getElementById("pageTitle").innerText = promptTitle;
-  document.getElementById("promptTitle").innerText = promptTitle;
-
 
   const displayHTML = `
     <strong>Carrying Parent Name:</strong> ${PregnantName}<br>
@@ -190,7 +194,7 @@
   function copyFromBuffer() {
     const buffer = document.getElementById("copyBuffer");
     buffer.select();
-    buffer.setSelectionRange(0, 99999);
+    buffer.setSelectionRange(0, 99999); // For mobile
     navigator.clipboard.writeText(buffer.value)
       .then(() => alert("Story copied to clipboard!"))
       .catch(err => {
@@ -199,16 +203,45 @@
       });
   }
 
-  function showStory(key) {
-    const option = options[key];
-    if (!option) return;
+  function showStory(path) {
+    const storyBox = document.getElementById("storyDisplay");
+    let text = "";
 
-    document.getElementById("copyBuffer").value = option.response;
 
-    document.getElementById("storyDisplay").innerHTML = `
-      <p class="story"><strong>${option.label} path:</strong><br>${option.response.replace(/\n/g, '<br>')}</p>
-      <button class="storyButton" onclick="copyFromBuffer()">Copy ${option.label}</button>
-      <button class="storyButton" onclick="goToPage('${option.next}.html')">Continue ${option.label}</button>
+
+
+
+
+
+
+    // Step 5: Replace the option 1, option 2, and option 3 with the exact values of the lower case edits from Step 3
+    // Step 6: Add in the reponse for each prompt here in between the ``
+    // Step 7: replace the option 1 letter, option 2 letter, option 3 letter with the lowercase letter corresponding to the next prompt the response leads to. 
+    // Note: The letter can be found by looking at the CYOA tree Ten made. Ex: a, b, c
+    // If you only need one or two of the options, just don't change the stuff for option 3. Handling the button in step 4 was enough.
+    if (path === 'join in') {
+      text = `${cap(OtherSheHeThey)} felt a knot of frustration tightening, silently counting down to ${OtherHerHisTheir} breaking point.
+One evening, as ${PregnantName} meticulously organized ${PregnantHerHisTheir} vitamin intake, ${OtherName} finally confronted ${PregnantHerHimThem}. A tense exchange followed, filled with ${OtherHerHisTheir} longing for their old life and ${PregnantHerHisTheir} intense anxieties for their kitten. But as the initial pushback settled, they both took a breath, allowing real listening to begin. ${PregnantName} confessed ${PregnantHerHisTheir} overwhelming fears about ensuring their kitten's health, and as ${OtherName} truly heard the raw worry in ${PregnantHerHisTheir} voice, ${OtherHerHisTheir} perspective shifted. ${cap(OtherSheHeThey)} realized ${OtherHerHisTheir} annoyance was misplaced. Their kitten deserved every ounce of effort, every precaution. ${cap(OtherSheHeThey)} pulled ${PregnantHerHimThem}  into a hug, promising to let go of the past and even help ${PregnantHerHimThem}  manage ${PregnantHerHisTheir} intricate schedules. It might drive ${OtherHerHimThem}   a little crazy, ${OtherSheHeThey}  knew, but for their little one, it was a small sacrifice.
+`; // your 1 response here
+      page = "e"; // next prompt here. a, b, c, etc
+    } else if (path === 'ignore it') {
+      text = `The tension finally peaked, and ${OtherName} decided to talk to ${PregnantName}. It wasn't an easy conversation; it was a back-and-forth of differing perspectives, neither truly understanding the other. ${PregnantName} couldn't fathom why ${OtherSheHeThey}  didn't grasp the importance of ${PregnantHerHisTheir} choices, and ${OtherName} couldn't make ${PregnantHerHimThem}  see the joy they were losing. Exhausted, ${OtherName} eventually surrendered. Perhaps, ${PregnantSheHeThey} ${PregnantWasWere} right. Maybe ${OtherSheHeThey}  just needed to let go of their old ways and accept this new, detail-oriented ${PregnantName}. ${cap(OtherSheHeThey)} felt a pang of sadness for the spontaneous adventures they used to share, quietly mourning the carefree days that now seemed a distant memory. ${cap(OtherSheHeThey)} resolved to simply move on.
+What followed were months marked by ${OtherHerHisTheir} resigned "yes, dears" and an underlying current of frustration. A subtle wedge began to drive itself between them, making their shared space feel a little bigger, a little quieter. Yet, amidst the tension, there were glimmers of their old connection—a shared laugh over an ultrasound picture, a tender moment feeling the kitten’s first flutter. ${OtherName} held onto these precious, scattered moments of joy, hoping they would be enough to bridge the growing gap and keep their love story intact.
+`; // your 2 story here
+      page = "f"; // next prompt here. a, b, c, etc
+    } else if (path === 'look for help') {
+  text = `One evening, ${OtherName} finally confronted ${PregnantHerHimThem}, and things quickly went off the rails. ${PregnantName} lashed out, yelling that ${OtherSheHeThey} didn’t care about their kitten and suggesting they split up if ${OtherSheHeThey} ${OtherWasWere}n’t ready to make sacrifices. The words stung, but ${OtherName} quickly realized the intense fear driving ${PregnantHerHisTheir} reaction – those fear-mongering articles had clearly taken their toll.Deciding that enough was enough, ${OtherSheHeThey} put ${OtherHerHisTheir} foot down and suggested they talk to a professional. If ${PregnantSheHeThey} wouldn't listen to ${OtherHerHimThem}, maybe ${PregnantSheHeThey} would listen to an expert.${cap(OtherSheHeThey)} promptly made an appointment, and thankfully, the session with the therapist was incredibly helpful. ${PregnantName} received accurate, reassuring information that gently peeled away the layers of anxiety ${PregnantSheHeThey} had built up. Relief washed over ${PregnantHerHimThem} as ${PregnantSheHeThey} let go of those rigid fears.${cap(PregnantSheHeThey)} tearfully apologized to ${OtherName}, who readily accepted, understanding ${PregnantSheHeThey}'d been overwhelmed. They both agreed it was perfectly fine to be careful and make sacrifices for their kitten, but not at the expense of their joy and peace of mind. They were a team, ready to navigate parenthood with realistic care and a lot more laughter.`;
+  
+  page = "g"; // next prompt here
+}
+
+
+    document.getElementById("copyBuffer").value = text;
+
+    storyBox.innerHTML = `
+      <p class="story"><strong>${cap(path)} path:</strong><br>${text.replace(/\n/g, '<br>')}</p>
+      <button class="storyButton" onclick="copyFromBuffer()">Copy ${cap(path)}</button>
+      <button class="storyButton" onclick="goToPage('${page}.html')">Continue ${cap(path)}</button>
     `;
   }
 </script>

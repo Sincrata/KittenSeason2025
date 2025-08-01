@@ -100,7 +100,16 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Your prompt text here`.trim();
+  const storyText = `${PregnantName} and ${OtherName} were navigating the delightful, albeit sometimes dizzying, waters of their second trimester. ${PregnantName}’s baby bump, now adorably prominent, was a daily reminder of the little person soon to join their lives. The initial whirlwind of excitement and a touch of panic had gently settled into a comfortable rhythm. ${OtherName}, ever diligent, was excelling at ${OtherHerHisTheir} job, and their home, once a flurry of baby-related research and nesting instincts, felt calm and prepared.
+One Tuesday evening, as ${PregnantName} arrived home from work, a pleasant surprise awaited ${PregnantHerHimThem}. ${OtherName}’s satchel was on the coat rack, and the comforting aroma of a home-cooked meal wafted from the kitchen. ${cap(OtherSheHeThey)} was usually home much later. ${cap(PregnantSheHeThey)} found ${OtherHerHimThem} by the stove, humming contentedly. With a warm smile, ${PregnantSheHeThey} walked over and kissed ${OtherHerHimThem} on the cheek. “You’re home early, love,” ${PregnantSheHeThey} murmured, leaning into ${OtherHerHisTheir} embrace.
+ ${OtherName} turned, ${OtherHerHisTheir} expression a mix of contentment and something else ${PregnantSheHeThey} couldn’t quite decipher. “I have news,” ${OtherSheHeThey} said, ${OtherHerHisTheir} voice a little softer than usual. “I got the promotion.” ${PregnantName}’s eyes lit up. “That’s wonderful, ${OtherName}! I knew they’d recognize your hard work.” ${cap(PregnantSheHeThey)} squeezed ${OtherHerHisTheir} hand, genuinely thrilled for ${OtherHerHimThem}. But instead of the celebratory grin ${PregnantSheHeThey} expected, a shadow crossed ${OtherHerHisTheir} face.
+“It is,” ${OtherSheHeThey} conceded, ${OtherHerHisTheir} gaze drifting to the window. “But there’s a catch. The position requires me to go on an extended business trip. To another clan, for a full month.” The words hung in the air, slowly dimming ${PregnantName}’s joy. A month? That was a long time. ${cap(PregnantSheHeThey)} ${PregnantWasWere} really starting to feel the effects of ${PregnantHerHisTheir} pregnancy now, the newfound aches and the growing fatigue. “A whole month?” ${PregnantSheHeThey} repeated, ${PregnantHerHisTheir} voice laced with concern. “But what if… what if something happens while you’re gone? With me or the baby?”
+${cap(OtherSheHeThey)} turned back to ${PregnantHerHimThem}, ${OtherHerHisTheir} own worry mirroring ${PregnantHersHisTheirs}. “That’s exactly what I’m thinking. Leaving you to fend for yourself, especially now… it tears at me.” ${cap(OtherSheHeThey)} ran a hand through ${OtherHerHisTheir} hair, a gesture of deep thought. “And it’s not just this trip. They made it clear that regular, extended trips would be part of the role.” The reality of it settled over them like a heavy blanket. The thought of ${OtherHerHimThem} being called away for months at a time, especially close to ${PregnantHerHisTheir} due date, or when their child was a newborn and ${PregnantSheHeThey} desperately needed ${OtherHerHisTheir} support, was daunting.
+ ${OtherName} was distressed. This promotion wasn’t just a step up; it was an opportunity into a field ${OtherSheHeThey} had always dreamed of, a job ${OtherSheHeThey} truly enjoyed and had worked incredibly hard for. The idea of letting it slip away was painful. ${PregnantName} looked at ${OtherHerHimThem}, seeing the conflict in ${OtherHerHisTheir} eyes. ${cap(PregnantSheHeThey)} didn’t want to be the one to rob ${OtherHerHimThem} of ${OtherHerHisTheir} dream, to tell ${OtherHerHimThem} ${OtherSheHeThey} couldn’t pursue something that meant so much. But the thought of ${OtherHerHimThem} missing their child’s first moments, or ${PregnantHerHimThem} navigating the challenging early days of parenthood alone, was equally heartbreaking. They stood there, the scent of dinner now mingling with the heavy essence of an unforeseen dilemma.
+
+Question 
+Should ${OtherName} take the promotion?
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,15 +122,18 @@
   // Note: the response that has l as its next page is the one that does NOT lead to twins.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Response text here`,
+      label: "Take It",
+      response: `After a long, thoughtful conversation, filled with shared fears and the quiet understanding that defined their relationship, they made a decision. ${OtherName} would take the job. This might be ${OtherHerHisTheir} only shot at such an incredible opportunity, and they reasoned that it wasn't as if they were being forced to split up entirely. It would undoubtedly be hard for ${OtherHerHimThem} to be away, but perhaps ${OtherSheHeThey} could work something out with ${OtherHerHisTheir} boss regarding the frequency of trips. Crucially, they agreed ${OtherSheHeThey} should be able to take parental leave when the baby was coming, ensuring that precious time would be safe from surprise business travel.
+ ${OtherName}'s shoulders visibly relaxed now that ${PregnantName} was wholeheartedly on board and so supportive. They talked about all the ways they could stay connected while ${OtherSheHeThey} was gone – phone calls, video chats, daily updates. Their bond was strong, built on years of trust and unwavering affection. This new chapter would certainly present a challenge, but they believed having a baby didn't mean they had to sacrifice every other dream in life. They had faced so much together already, and with their hearts full of love and a shared sense of determination, they were prepared to take on this challenge, too.
+`,
       next: "l"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Response text here`
+      label: "Don't Take It",
+      response: `After a long, heartfelt conversation, tears welled in both their eyes. The decision, though painful, became clear. ${OtherName}, despite all ${OtherHerHisTheir} hard work and the yearning for that coveted position, found ${OtherHerHimThem}self unable to choose career over family. ${cap(OtherSheHeThey)} couldn't live with ${OtherHerHimThem}self if ${OtherSheHeThey} missed out on the profound joy and challenges of their baby’s arrival. ${cap(OtherSheHeThey)} knew ${OtherSheHeThey} could always work hard, try for recognition again later in life when their child was older and their family more settled. Perhaps ${OtherHerHisTheir} boss would understand, seeing the depth of ${OtherHerHisTheir} commitment not just to ${OtherHerHisTheir} work, but to what truly mattered most. With heavy hearts, but a solid bond of shared love, they decided to turn down the promotion, choosing each other, and their coming little one, above all else.
+`
     }
 
 
@@ -139,7 +151,7 @@ for (const key in options) {
 
     // Add 50/50 logic for option2
     if (key === "option2") {
-      nextKey = Math.random() < 0.5 ? "m" : "n";
+      nextKey = Math.random() < 0.267 ? "m" : "n";
     }
 
     showStory(key, nextKey); // Pass the dynamic nextKey
@@ -149,7 +161,7 @@ for (const key in options) {
 }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Prompt Title Here";
+  const promptTitle = "Promotion";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;
@@ -209,7 +221,7 @@ function showStory(key) {
   // Determine the next page
   let nextPage = option.next;
   if (key === "option2") {
-    nextPage = Math.random() < 0.5 ? "m" : "l";
+    nextPage = Math.random() < 0.267 ? "m" : "l";
   }
 
   // Set the response in the copy buffer

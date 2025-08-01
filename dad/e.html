@@ -100,53 +100,56 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Insert Prompt Text Here`.trim();
+  const storyText = `Your prompt text here`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
 
 
   // ✅ Step 2: Define your options in one place
-  // Each option has 3 things to fill in. Remove the code block for unused options.
+  // Each option has 2 things to fill in. Remove the code block for unused options.
   // 1: fill in the "Option X" after the "label:" This will be what displays on the options buttons
   // 2: fill in the text for the options in between the `` after the "response"
-  // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
+  // Note: the response that has l as its next page is the one that does NOT lead to twins.
   const options = {
     "option1": {
       label: "Option 1",
-      response: `Option 1 response here`,
-      next: "z"
+      response: `Response text here`,
+      next: "l"
     }
 
 
     ,"option2": {
       label: "Option 2",
-      response: `Option 2 response here`,
-      next: "z"
-    }
-
-
-    ,"option3": {
-      label: "Option 3",
-      response: `Option 3 response here`,
-      next: "z"
+      response: `Response text here`
     }
 
 
   };
 
 
-  const container = document.getElementById("storyContainer");
-  for (const key in options) {
-    const btn = document.createElement("button");
-    btn.className = "storyButton";
-    btn.textContent = options[key].label;
-    btn.onclick = () => showStory(key);
-    container.appendChild(btn);
-  }
+const container = document.getElementById("storyContainer");
+for (const key in options) {
+  const btn = document.createElement("button");
+  btn.className = "storyButton";
+  btn.textContent = options[key].label;
+
+  btn.onclick = () => {
+    let nextKey = options[key].next;
+
+    // Add 50/50 logic for option2
+    if (key === "option2") {
+      nextKey = Math.random() < 0.267 ? "m" : "n";
+    }
+
+    showStory(key, nextKey); // Pass the dynamic nextKey
+  };
+
+  container.appendChild(btn);
+}
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title Here";
+  const promptTitle = "Prompt Title Here";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;
@@ -199,18 +202,26 @@
       });
   }
 
-  function showStory(key) {
-    const option = options[key];
-    if (!option) return;
+function showStory(key) {
+  const option = options[key];
+  if (!option) return;
 
-    document.getElementById("copyBuffer").value = option.response;
-
-    document.getElementById("storyDisplay").innerHTML = `
-      <p class="story"><strong>${option.label} path:</strong><br>${option.response.replace(/\n/g, '<br>')}</p>
-      <button class="storyButton" onclick="copyFromBuffer()">Copy ${option.label}</button>
-      <button class="storyButton" onclick="goToPage('${option.next}.html')">Continue ${option.label}</button>
-    `;
+  // Determine the next page
+  let nextPage = option.next;
+  if (key === "option2") {
+    nextPage = Math.random() < 0.267 ? "m" : "l";
   }
+
+  // Set the response in the copy buffer
+  document.getElementById("copyBuffer").value = option.response;
+
+  // Display the story and buttons
+  document.getElementById("storyDisplay").innerHTML = `
+    <p class="story"><strong>${option.label} path:</strong><br>${option.response.replace(/\n/g, '<br>')}</p>
+    <button class="storyButton" onclick="copyFromBuffer()">Copy ${option.label}</button>
+    <button class="storyButton" onclick="goToPage('${nextPage}.html')">Continue ${option.label}</button>
+  `;
+}
 </script>
 </body>
 </html>

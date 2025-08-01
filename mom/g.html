@@ -139,7 +139,7 @@ for (const key in options) {
 
     // Add 50/50 logic for option2
     if (key === "option2") {
-      nextKey = Math.random() < 0.5 ? "m" : "n";
+      nextKey = Math.random() < 0.267 ? "m" : "n";
     }
 
     showStory(key, nextKey); // Pass the dynamic nextKey
@@ -209,7 +209,7 @@ function showStory(key) {
   // Determine the next page
   let nextPage = option.next;
   if (key === "option2") {
-    nextPage = Math.random() < 0.5 ? "m" : "n";
+    nextPage = Math.random() < 0.267 ? "m" : "n";
   }
 
   // Set the response in the copy buffer

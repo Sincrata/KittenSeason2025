@@ -100,7 +100,15 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Insert Prompt Text Here`.trim();
+  const storyText = `${PregnantName} and ${OtherName} are going to be parents! The first trimester was supposed to be a time of quiet excitement, but for ${PregnantName}, it was quickly turning into a whirlwind of information. Every free moment found ${PregnantHerHimThem} scrolling through pregnancy blogs or tuning into a new prenatal health podcast. ${PregnantSheHeThey} have been messaging their surrogate non-stop with links to articles and advice and asking for her sleep schedule.
+Soon, ${PregnantHerHisTheir} newfound knowledge morphed into a strict regimen for the surrogate. ${OtherName} watched as ${PregnantHerHisTheir} started bothering her about every little thing, even to the point where ${PregnantSheHeThey} asked her to get a fit bit and share her app with ${PregnantHerHimThem} to monitor it. ${OtherName} couldn't hold a conversation with ${PregnantHerHimThem} without something leading ${PregnantHerHimThem} down a tangent about prenatal vitamins or alternative birthing methods. "Did you know," ${PregnantSheHeThey} 'd often begin, "that eating organic kale at precisely 7 PM can boost XYZ?" ${OtherName} loved ${PregnantHerHimThem}, but these increasingly specific, pushy rules were creating an air of constant stress for the surrogate mother and for them.
+
+${OtherName} knew their surrogate was far too kind to say anything, so it was up to ${OtherHerHimThem} to put a stop to this nonsense. ${cap(OtherSheHeThey)} understood ${PregnantHerHisTheir} desire to be a good parent, but the constant worry and these neurotic behaviors were starting to cast a long shadow over their relationship. ${cap(OtherSheHeThey)} tried to be patient, to empathize, but it was getting harder.
+Is this just how ${PregnantName} is? ${OtherName} pictured their future – filled with joy, yes, but also with an endless parade of health mandates and dietary restrictions. ${cap(OtherSheHeThey)} didn't want to raise their kitten with this sort of intricate micromanaging. One more mention of a ‘superfood smoothie’ or a perfectly timed nap, and ${OtherSheHeThey} felt a sharp knot of annoyance tightening in ${OtherHerHisTheir} chest. ${cap(OtherSheHeThey)} ${OtherWasWere} on the verge of snapping, unsure how much more ${OtherSheHeThey} could take of the stress ${PregnantName} was unknowingly creating for them both and for their surrogate mother.
+ 
+Question 
+What does ${OtherName} do? Join in, Ignore it, or Seek help
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,23 +121,31 @@
   // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Option 1 response here`,
-      next: "z"
+      label: "Join in",
+      response: `${cap(OtherSheHeThey)} felt a knot of frustration tightening, silently counting down to ${OtherHerHisTheir} breaking point.
+One evening, as ${PregnantName} ${PregnantWasWere} lounging on the couch texting their surrogate a meticulously organized plan of vitamin intake, ${OtherName} finally confronted ${PregnantHerHimThem}. A tense exchange followed, filled with ${OtherHerHisTheir} concern for the sanity of their surrogate and ${PregnantName}’s intense anxieties for their kitten’s well being. But as the initial pushback settled, they both took a breath, allowing real listening to begin. ${PregnantName} confessed ${PregnantHerHisTheir} overwhelming fears about being physically away from their growing kitten. It’s not that ${PregnantSheHeThey} ${PregnantDoesDo}n’t trust the surrogate to know what she’s doing, but ${PregnantSheHeThey} just can’t shake their fear that something could be going wrong and the two of them aren’t there to notice. As ${OtherName} truly heard the raw worry in ${PregnantHerHisTheir} voice, ${OtherHerHisTheir} perspective shifted. ${cap(OtherSheHeThey)} realized ${OtherHerHisTheir} annoyance was misplaced. Their kitten deserved every ounce of effort, every precaution. 
+ 
+${cap(OtherSheHeThey)} pulled ${PregnantHerHimThem} into a hug, promising to let go of their frustration and even help ${PregnantHerHimThem} manage their surrogate’s schedule intricate schedules. Maybe the surrogate really didn’t mind it after all, she hasn’t complained yet. It might drive ${OtherHerHimThem} a little crazy, ${OtherSheHeThey} knew, but for their little one, it was a small sacrifice.
+`,
+      next: "e"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Option 2 response here`,
-      next: "z"
+      label: "Ignore it",
+      response: `The tension finally peaked, and ${OtherName} decided to talk to ${PregnantName}. It wasn't an easy conversation; it was a back-and-forth of differing perspectives, neither truly understanding the other. ${PregnantName} couldn't fathom why ${OtherSheHeThey} didn't grasp the importance of ${PregnantHerHisTheir} choices, and ${OtherName} couldn't make ${PregnantHerHimThem} see how annoying they were being to the surrogate. Exhausted, ${OtherName} eventually surrendered. Perhaps, ${PregnantSheHeThey} ${PregnantWasWere} right. Maybe the surrogate didn't mind - she hadn't complained after all. Perhaps it was only ${OtherSheHeThey} that was upset, and ${OtherSheHeThey} just needed to let go and accept this new, detail-oriented ${PregnantName}. ${cap(OtherSheHeThey)} resolved to simply move on.
+What followed were months marked by ${OtherHerHisTheir} resigned "yes, dears" and an underlying current of frustration. A subtle wedge began to drive itself between them, making their shared space feel a little bigger, a little quieter. Yet, amidst the tension, there were glimmers of their old connection—a shared laugh over ultrasound pictures, tender moments during their visits with their surrogate. ${OtherName} held onto these precious, scattered moments of joy, hoping they would be enough to bridge the growing gap and keep their love story intact.
+`,
+      next: "f"
     }
 
 
     ,"option3": {
-      label: "Option 3",
-      response: `Option 3 response here`,
-      next: "z"
+      label: "Seek help",
+      response: `One evening, ${OtherName} finally confronted ${PregnantHerHimThem}, and things quickly went off the rails. ${PregnantName} lashed out, yelling that ${OtherSheHeThey} didn’t care about their kitten and suggesting they split up if ${OtherSheHeThey} ${OtherWasWere}n’t ready to make sacrifices. The words stung, but ${OtherName} quickly realized the intense fear driving ${PregnantHerHisTheir} reaction – those fear-mongering articles had clearly taken their toll. Deciding that enough was enough, ${OtherSheHeThey} put ${OtherHerHisTheir} foot down and suggested they talk to a professional. If ${PregnantSheHeThey} wouldn't listen to ${OtherHerHimThem}, maybe ${PregnantSheHeThey} would listen to an expert.
+${cap(OtherSheHeThey)} promptly made an appointment, and thankfully, the session with the therapist was incredibly helpful. ${PregnantName} received accurate, reassuring information that gently peeled away the layers of anxiety ${PregnantSheHeThey} had built up. Relief washed over ${PregnantHerHimThem} as ${PregnantSheHeThey} let go of those rigid fears. ${cap(PregnantrSheHeThey)} tearfully apologized to ${OtherName}, and the surrogate mother who readily accepted, understanding ${PregnantSheHeThey}'d been overwhelmed. She told them gently that she wasn't annoyed, but she did think ${PregnantSheHeThey} ${PregnantWasWere} taking things a little far. She has been a surrogate a few times before, and knows how parents can be very particular about their kittens. They all agreed it was perfectly fine to be careful and make sacrifices for their kitten, but not at the expense of their joy and peace of mind. They were a team, ready to navigate parenthood with realistic levels of care and a lot more laughter.
+`,
+      next: "g"
     }
 
 
@@ -146,7 +162,7 @@
   }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title Here";
+  const promptTitle = "Neuroticism";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;

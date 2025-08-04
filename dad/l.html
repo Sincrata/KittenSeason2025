@@ -100,7 +100,14 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Insert Prompt Text Here`.trim();
+  const storyText = `The afternoon sun streamed warmly through the windows of the bustling diner, casting a golden glow on ${OtherName} and ${OtherHerHisTheir} surrogate mother. It was a regular check-in, and the air was thick with excitement and anticipation. Now well into her third trimester, she recounted amusing anecdotes from her pregnancy, her laughter echoing their own joyful chuckles. ${OtherName} was full of questions, listened intently as she patiently answered each one, reassuring ${OtherHerHimThem} that everything was progressing beautifully. She then gently guided ${OtherHerHisTheir} hands to her growing belly, and a thrill shot through ${OtherHerHimThem} as ${OtherHerHisTheir} precious kitten responded with a playful kick. ${cap(OtherHerHisTheir)} face lit up with pure joy and wonder, a sight that made her laugh even harder. Knowing she didn't have much spare cash, ${OtherName} subtly handled the bill, earning a heartfelt thank you from her. After a final, tender goodbye to ${OtherHerHisTheir} little one, ${OtherSheHeThey} prepared to head out.
+As ${OtherSheHeThey} stepped outside, ${OtherSheHeThey} noticed the surrogate still waiting on the curb. ${OtherName}, ever observant, asked if her ride was on the way. She sighed, explaining that her friend, who was supposed to pick her up, wasn't responding. Understanding her tight budget for taxis or ride-shares, ${OtherName} didn't hesitate. "How about I give you a lift?" ${cap(OtherSheHeThey)} offered a kind smile on ${OtherHerHisTheir} face. Her eyes brightened, and she happily accepted. ${cap(OtherHerHisTheir)} car was an older model, a bit of a "lemon" as ${OtherName} jokingly called it, but the seats were clean, and thankfully, her home wasn't too far from ${OtherHerHisTheir}.
+They chatted congenially for the first few minutes, the air filled with lighthearted conversation about kitten names and nursery themes. But then, only half a mile from her house, the car sputtered violently. A few desperate coughs from the engine, and then, an unsettling silence. The AC, already struggling against the summer heat, died immediately, leaving them stranded on the side of the road. "Shoot! I am so, so sorry about this!" ${OtherSheHeThey} apologized, ${OtherHerHisTheir} brow furrowed with concern. She waved a hand dismissively, "It's okay, ${OtherName}, I understand. These things happen." But even as she spoke, the intense heat began to take its toll, beads of sweat forming on her forehead. ${OtherName}, ever the pragmatist, hopped out and popped the hood.
+${OtherName} wrestled with the stubborn engine, muttering to ${OtherHerHimThem}self. The heat was becoming unbearable, and ${OtherHerHisTheir} precious kitten was still in the car, overheating along with the surrogate. Just call a tow truck, ${OtherName}! ${cap(OtherHerHisTheir)} mind tells ${OtherHerHimThem}, But tow trucks cost a fortune, and her house is practically around the corner. It would be a huge waste of money, money I desperately need right now while I’m saving for the kitten. ${cap(OtherSheHeThey)} went back and forth in ${cap(OtherHerHisTheir)} head, as their surrogate, looking increasingly pale, gripped the seat in front of her, the heat threatening to overwhelm her.
+
+Question 
+What does ${OtherName} do? Carry the surrogate or Call a tow
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,24 +120,29 @@
   // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Option 1 response here`,
-      next: "z"
+      label: "Carry the surrogate to her home",
+      response: `${OtherName} glanced into the car. The sight of the surrogate, clearly suffering in the stifling heat, instantly sobered ${OtherHerHimThem}. ${cap(OtherSheHeThey)} knew the dangers of heatstroke, especially for a developing kittenfloss. But the thought of a several-hundred-dollar tow fee made ${OtherHerHimThem} panic. ${OtherName} made a decision at that moment. ${cap(OtherSheHeThey)} headed to the car and carefully helped the surrogate out. She was too weak to walk properly, so ${OtherName}, after a quick "Is this okay?" lifted her bridal style into ${OtherHerHisTheir} strong arms. Without a wasted second, ${OtherSheHeThey} began to carry her the half-mile toward her house. Thankfully, they only had to go halfway before a good samaritan pulled over, offering them a ride. The blast of AC from their car felt like pure bliss.
+ 
+When they arrived at her home, ${OtherName} went inside with her, helping her cool down and making sure she rested and drank plenty of water. About an hour later, ${OtherSheHeThey} said goodbye again, apologizing over and over for the ordeal, and started back to where the car is and spent until sundown working on it but thankfully got it working. 
+`,
+      next: "r"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Option 2 response here`,
-      next: "z"
+      label: "Call a tow truck",
+      response: `${OtherName} finally glanced into the car, ${OtherHerHisTheir} eyes falling on the surrogate. The sight of her, suffering in the oppressive heat, instantly sobered ${OtherHerHimThem}. ${cap(OtherSheHeThey)} knew how dangerous heatstroke could be, especially for a developing kitten. In that moment, the contemplation about money vanished. A few hundred dollars was nothing compared to ${OtherHerHisTheir} kitten's health and the surrogate's well-being. 
+ 
+${cap(OtherSheHeThey)} pulled out ${OtherHerHisTheir} phone and quickly called for a tow. Within minutes, the tow truck arrived like a beacon of hope. ${OtherName} helped her into the cab, the blasting air conditioning a welcome shock. "Oh, I feel so much better!" she sighed, relief washing over her face.
+
+
+${cap(OtherSheHeThey)} hopped in as well, taking the truck back to her house. ${cap(OtherSheHeThey)} walked her inside to ensure she got plenty of water and didn't need to go to the hospital. After about an hour of resting and drinking, she confirmed she felt loads better and didn't have heat exhaustion. ${OtherName} apologized again and again, but thankfully, she wasn't mad in the slightest. As ${OtherSheHeThey} started to walk to ${OtherHerHisTheir} home a few blocks away, (where the tow had dropped off ${OtherHerHisTheir} car) ${OtherSheHeThey} reminds ${OtherHerHimThem}self to buy her a fruit basket or something. 
+`,
+      next: "s"
     }
 
 
-    ,"option3": {
-      label: "Option 3",
-      response: `Option 3 response here`,
-      next: "z"
-    }
+
 
 
   };
@@ -146,7 +158,7 @@
   }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title Here";
+  const promptTitle = "Carry you Home";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;

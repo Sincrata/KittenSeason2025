@@ -100,7 +100,20 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Insert Prompt Text Here`.trim();
+  const storyText = `The aroma of freshly brewed coffee and sizzling bacon filled the air as ${OtherName} sat in ${OtherHerHisTheir} favorite diner booth. ${cap(OtherSheHeThey)}’d been dating around and looking for a serious partner for years, but nothing seemed to really stick. ${cap(OtherSheHeThey)} ${OtherWasWere} getting tired of waiting for the perfect floss to find ${OtherHerHimThem}. Today, however, their usual lonely breakfast took an unexpected turn when a tiny, curious face peeked over the top of the booth directly opposite them.
+It was a toddler, perhaps two years old, with eyes wide and sparkling, clumsily trying to spoon scrambled eggs into their mouth. ${OtherName} chuckled, unable to wipe the smile from ${OtherHerHisTheir} face. 
+
+Oh, look at that little one, ${OtherName} thought, a soft smile spreading across ${OtherHerHisTheir} face. So tiny and full of mischief.
+${OtherName} chuckled, watching the kitten’s antics. It reminded ${OtherHerHimThem} of that time ${OtherHerHisTheir} cousin's kit tried to put the remote in the fridge. ${OtherSheHeThey} adored kittens, and really thought that ${OtherSheHeThey} would have one of ${OtherHerHisTheir} own at this point in ${OtherHerHisTheir} life.
+A comfortable silence settled in, as ${OtherSheHeThey} imagined a kitten of ${OtherHerHisTheir} very own sitting across from them in the booth. Then, ${OtherName}, realized that in that perfect fantasy, a partner was not present. It was just ${OtherHerHimThem} and their precious kitten together against the world.
+${OtherName} sighed and took a drink of ${OtherHerHisTheir} coffee. It’s just a dream, they thought. But does it have to be?
+ ${cap(OtherSheHeThey)} wanted it, didn't ${OtherSheHeThey}? To be a parent? ${OtherName} looked down at their drink slowly, a mix of excitement and apprehension flickering in ${OtherHerHisTheir} heart. Yeah, ${OtherName} thinks ${OtherSheHeThey} ${OtherDoesDo}. More than ${OtherSheHeThey} realized, maybe. ${OtherSheHeThey} glanced back up at the toddler across from their booth. Then why don’t I go for it! If I want it, why wait? Who’s to say that I will ever find a partner to start a family with!? Why should I have to have one to be a parent?!
+But the pragmatic half of ${OtherHerHisTheir} mind felt a rush of all the 'what-ifs' that could possibly stand in ${OtherHerHisTheir} way. ${cap(OtherSheHeThey)} squeezed ${OtherHerHisTheir} mug, ${OtherHerHisTheir} brow furrowed. Wait, ${OtherSheHeThey} told ${OtherHerHimThem}self. Hold on a second. It's not that simple, ${OtherName}. There’s a whole process – finding a surrogate mother, all the legalities, the expenses. It's a massive commitment. ${cap(OtherSheHeThey)} paused, taking a breath. What if I lose my job? What if something happens to me? What if I’m not a good parent? This wouldn't be just about me anymore; it would be about a whole new life. ${cap(OtherHerHisTheir)} started to feel hopeless, the weight of such a monumental decision pressing down on ${OtherHerHimThem}.
+ ${OtherSheHeThey} finished ${OtherHerHisTheir} cup of coffee and continued to sit and brew on this idea. This strong feeling in ${OtherHerHisTheir} chest grew stronger by the minute. Yes, there are a million ‘what-ifs’ that could pop up, for anything in life, really. But what I know for sure is that I want a kitten. One way or another. And all the other ways have left me heartbroken and lonely. I can’t keep waiting for a miracle. I can’t let fear of the unknown get in the way of my dreams. I have so much love to give. 
+ 
+Question 
+How does ${OtherName} feel about going forward with ${OtherHerHisTheir} idea? Happy or Nervous
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,23 +126,22 @@
   // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Option 1 response here`,
-      next: "z"
+      label: "Happy",
+      response: `A quiet moment passed, the clatter of plates and distant chatter fading into the background. ${OtherName} closed ${OtherHerHisTheir} hands into determined fists, feeling not just unwavering love for ${OtherHerHisTheir} nonexistent child, but also boundless faith in ${OtherHerHisTheir} possible future. The practical concerns didn't vanish entirely, but they suddenly felt manageable, surmountable. A genuine smile, one of relief and profound happiness, spread across ${OtherName}'s face. ${cap(OtherSheHeThey)} got up from the table, and paid ${OtherHerHisTheir} ticket on ${OtherHerHisTheir} way out. This is it! They declared in their heart. I’m going to do it. I’m going to become a parent. And just like that, stepping out of the diner and into the sunshine, ${OtherHerHisTheir} biggest adventure yet began.
+`,
+      next: "b"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Option 2 response here`,
-      next: "z"
-    }
-
-
-    ,"option3": {
-      label: "Option 3",
-      response: `Option 3 response here`,
-      next: "z"
+      label: "Nervous",
+      response: `Despite ${OtherName}’s bought of optimism, ${OtherSheHeThey} ${OtherWasWere}n't entirely convinced. ${cap(OtherSheHeThey)} squeezed ${OtherHerHisTheir} hands together as ${OtherSheHeThey} drowns in ${OtherHerHisTheir} thoughts. ${cap(OtherSheHeThey)} ${OtherWasWere}n’t sure ${OtherSheHeThey} ${OtherWasWere} ready for something so huge. ${cap(OtherSheHeThey)} ${OtherDoesDo}n't want to rush into anything if ${OtherSheHeThey} ${OtherDoesDo}n't feel confident. 
+${cap(OtherSheHeThey)} went home, and over the next few days, the idea of parenthood kept resurfacing in ${OtherName}'s mind. ${cap(OtherSheHeThey)}'d find ${OtherHerHimThem}self randomly thinking about it, asking ${OtherHerHimThem}self hypothetical questions, or just staring off into space, imagining how things could be. ${cap(OtherSheHeThey)} started doing ${OtherHerHisTheir} research, poring over articles about donor processes, adoption, and solo parenting. ${cap(OtherSheHeThey)} even talked to friends who were parents, and cautiously, to family members, gauging their thoughts and experiences. 
+Finally, after two long weeks of mulling it over, the thought of having a child on their own simply wouldn't leave ${OtherName}’s head. ${cap(OtherSheHeThey)} had considered every potential challenge, every hurdle, and every 'what if.' And yet, ${OtherSheHeThey} couldn't find a strong enough reason not to do it.
+One evening, as they were winding down for the night, ${OtherName} made the decision, a newfound certainty in ${OtherHerHisTheir} heart. ${cap(OtherSheHeThey)} sat up with a start and pulled ${OtherHerHisTheir} laptop over to reply to an email to their physician. I'm ready. ${cap(OtherSheHeThey)} typed without a shred of hesitation. I'm ready to have a child. What appointment dates are available this month?
+${cap(OtherSheHeThey)} ${OtherWasWere} overwhelmed with happiness, feeling like their comfortable rhythm was about to gain the most beautiful, exciting new beat. The future, once a collection of 'what ifs,' now felt wonderfully, thrillingly real.
+`,
+      next: "c"
     }
 
 
@@ -146,7 +158,7 @@
   }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title Here";
+  const promptTitle = "Conception";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;

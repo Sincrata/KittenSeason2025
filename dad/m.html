@@ -100,7 +100,17 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Insert Prompt Text Here`.trim();
+  const storyText = `The air in ${OtherName}’s cozy home practically vibrated with anticipation. Every corner seemed to hum with the quiet promise of a new arrival. The surrogate mother was blooming in her third trimester, carrying precious cargo with a delightful waddle, her belly a magnificent testament to the miracle unfolding within. Her due date was drawing near, and the excitement in ${OtherName} was a palpable, joyful current that flowed through ${OtherHerHisTheir} days. ${cap(OtherSheHeThey)} had been dreaming of this moment for years, picturing ${OtherHerHisTheir} future as a family of two, and the reality of it was almost too wonderful to grasp.
+In these final weeks, ${OtherHerHisTheir} life had transformed into a whirlwind of delightful last-minute preparations. The nursery, painted in soft, calming greens, was almost complete, boasting a single, beautifully assembled crib draped with a handmade mobile. Tiny bodysuits were folded neatly in drawers, an array of bottles stood ready, and a sleek, single stroller waited patiently by the front door. ${cap(OtherSheHeThey)} had spent weekends carefully selecting the perfect car seat, debating potential names for the little one, and poring over kitten books, all focused on welcoming a child. ${cap(OtherHerHisTheir)} thoughts revolved around sleep schedules, feeding routines, and the particular joy of holding ${OtherHerHisTheir} kitten for the very first time. Every decision, every purchase, every hopeful moment centered around the arrival of ${OtherHerHisTheir} singular, precious bundle of joy. The nesting instinct had hit hard, transforming ${OtherHerHisTheir} home into a welcoming haven, perfectly primed for the tender pitter-patter of tiny feet.
+One sunny Tuesday morning, ${OtherSheHeThey} made ${OtherHerHisTheir} way to the obstetrician’s office for what was expected to be a routine final check-up. The plump and cheerful surrogate assured ${OtherHerHimThem} that this appointment was meant to be a reassuring confirmation: a final ultrasound to ensure everything was on track, a last glimpse of ${OtherHerHisTheir} beloved kitten before the big day. ${OtherName} stood aside as the surrogate lay back on the examination table, ${OtherHerHisTheir} eyes fixed on the screen where a grainy, yet undeniably precious, image of ${OtherHerHisTheir} child would soon appear. The familiar swish of gel, the gentle press of the transducer – it was all part of the comforting ritual.
+The doctor, a kind-faced floss with a reassuring smile, began the scan. ${cap(OtherHerHisTheir)} brow furrowed slightly, then ${OtherSheHeThey} paused, ${OtherHerHisTheir} eyes widening almost imperceptibly as the doctor maneuvered the device. A tiny ripple of confusion passing through ${OtherName}. Was everything okay? "Well now," the doctor chuckled softly, a note of pleasant surprise in their voice. They adjusted the screen, zoomed in, and then slowly swiveled it to face the stunned surrogate and parent to be. "It seems we have a bit of a surprise for you."
+On the screen, clear as day, were two distinct forms. Two tiny heads, two sets of squiggly limbs, two strong, rhythmic heartbeats. The doctor pointed, their smile broadening. "Congratulations, ${OtherName}. It looks like you're not just having a kitten. You're having twins!"
+The words hung in the air, a delightful, utterly staggering bomb that exploded in the quiet anticipation. ${OtherName}’s jaw dropped, ${OtherHerHisTheir} hand flying to ${OtherHerHisTheir} mouth, ${OtherHerHisTheir} eyes wide with astonishment. ${OtherName} blinked, then blinked again, leaning closer to the screen as if to confirm the impossible. "Twins?!" ${OtherSheHeThey} stammered, the word barely a whisper, a mix of disbelief and dawning wonder. "I’m having twins?!"
+The immediate shock quickly transformed into a dizzying rush of realization. Twins! ${cap(OtherSheHeThey)} ${OtherWasWere} having twins! ${cap(OtherHerHisTheir)} mind raced through the meticulous preparations ${OtherSheHeThey} had made, all painstakingly arranged for one. One crib, one stroller, one car seat, one set of tiny clothes, one name ${OtherSheHeThey} had agonizingly narrowed down. Now, it meant twice the supplies, two cribs where one stood proudly, two strollers (how would they even fit?), two car seats, two of every single item ${OtherSheHeThey} had carefully bought one of. Two babies! It couldn't be, could it? Yet, there they were, undeniably present on the ultrasound screen, two distinct little lives.
+A wave of panic washed over them. How had they not known? How would ${cap(OtherSheHeThey)} manage? 
+Question 
+How do they react? Happy or Upset
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,24 +123,26 @@
   // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Option 1 response here`,
-      next: "z"
+      label: "Happy",
+      response: `The initial shock quickly gave way to elation. The idea of two babies instead of one was daunting, yes. ${cap(OtherSheHeThey)} knew there would be double the sleepless nights, double the feedings, double the diapers, and certainly double the expenses. It would undoubtedly bring challenges  ${OtherSheHeThey} hadn't mentally prepared for. But as ${OtherSheHeThey} looked at the monitor, ${OtherHerHisTheir} eyes shone with excitement, an incredible sense of optimism settled in.
+"I can do this," ${OtherName} whispered to ${OtherHerHimThem}self.
+A wide, radiant smile lighting up ${OtherHerHisTheir} face. 
+
+The unexpected news didn't diminish ${OtherHerHisTheir} joy; it magnified it. ${cap(OtherSheHeThey)} walked out of the clinic that day with lighter steps and a fuller heart, ready to embrace the wonderful, chaotic, and incredibly blessed adventure that lay ahead. ${OtherName} was soon to be a parent to not one, but two precious miracles, and knew that with love and dedication, ${OtherSheHeThey} ${OtherWasWere} more than ready for this beautiful, double-sized future.
+`,
+      next: "r"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Option 2 response here`,
-      next: "z"
+      label: "Upset",
+      response: `For ${OtherName}, the news didn't bring the expected rush of joy. Instead, a wave of profound shock washed over ${OtherHerHimThem}, quickly followed by a heavy shroud of stress and nervousness. Two kittens? ${cap(OtherSheHeThey)}y had barely wrapped ${OtherHerHisTheir}head around the idea of one! How would ${OtherSheHeThey} manage? The financial implications, the sleepless nights, the sheer logistics of two newborns – it all felt overwhelmingly impossible. The beautiful dream of welcoming one child now seemed to fragment under the weight of an unexpected double reality. Any potential happiness was completely overshadowed by a looming cloud of anxiety. ${cap(OtherSheHeThey)} simply didn't feel ready.
+${cap(OtherSheHeThey)} left the clinic in a daze, the city sounds fading into a muted hum around ${OtherHerHimThem}. The drive home was silent, filled only with the deafening echoes of "twins." Once inside the sanctuary of ${OtherHerHisTheir} own home, the dam broke. Sitting alone on the couch, ${OtherSheHeThey} finally allowed the tears to fall, feeling the raw, unvarnished fear and worry that had consumed ${OtherHerHimThem}. ${OtherName} felt their deepest anxieties: "Am I ready for this?" "Can I handle it?" "How will I ever cope?"
+But as ${OtherSheHeThey} poured out ${OtherHerHisTheir} hearts in tears, something remarkable began to happen. The vulnerability, the release of pent-up fear, acted like a pressure valve. The immense weight that had settled upon ${OtherHerHisTheir} began to lighten, ever so slightly. Through ${OtherHerHisTheir} tears, a flicker of clarity, then determination, started to emerge. ${cap(OtherSheHeThey)} looked at the photo of the kittens from the ultra sound, still scared, but also undeniably determined. Yes, it would be incredibly hard. Yes, ${OtherSheHeThey} felt unprepared. But these were ${OtherHerHisTheir} babies. Two precious lives entrusted to ${OtherHerHimThem}. ${cap(OtherSheHeThey)} might not feel ready now, but ${OtherSheHeThey} will become ready. ${cap(OtherSheHeThey)} would learn, adapt, and love, making things work, no matter the challenges that lay ahead. The path ahead was daunting, but ${OtherSheHeThey} knew ${OtherSheHeThey} couldn’t live with ${OtherHerHimThem}self if ${OtherSheHeThey} gave up one of the kittens. ${cap(OtherSheHeThey)} ${OtherWasWere} ready to welcome ${OtherHerHisTheir} double blessing with fierce, unwavering love.
+`,
+      next: "s"
     }
 
-
-    ,"option3": {
-      label: "Option 3",
-      response: `Option 3 response here`,
-      next: "z"
-    }
 
 
   };
@@ -146,7 +158,7 @@
   }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title Here";
+  const promptTitle = "Twins";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;

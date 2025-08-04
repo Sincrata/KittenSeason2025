@@ -100,7 +100,14 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Your prompt text here`.trim();
+  const storyText = `${OtherName} is officially in the exciting, yet sometimes bewildering, second trimester of ${OtherHerHisTheir} pregnancy, and their surrogate’s little bump was starting to make its grand debut. ${OtherName}, bless ${OtherHerHisTheir} heart, was absolutely thrilled. ${cap(OtherSheHeThey)} couldn't keep their hands off her during one of their recent meetings. She seemed to not mind. ${cap(OtherHerHisTheir)} look of pure wonder was infectious, quietly imagining ${OtherHerHisTheir} precious child growing inside. Despite the momentary bouts of happiness when ${OtherSheHeThey} ${OtherWasWere} around the surrogate, most of ${OtherHerHisTheir} days were getting more stressful than ${OtherSheHeThey}’d ever anticipated.
+${OtherName} felt the pressing weight of ${OtherHerHisTheir} coming responsibilities weighing down on ${OtherHerHimThem}. The thought of being responsible for the well being and the raising of another life was draining, and the sheer mental weight of upcoming life changes started to press down on ${OtherHerHimThem}. Juggling ${OtherHerHisTheir} job, daily responsibilities, and friendships on top of all the preparations they had to do for the coming kitten proved to be a Herculean task. Despite ${OtherHerHisTheir} best intentions to take things slow and enjoy this journey, ${OtherName} often felt overwhelmed, teetering on the edge of exhaustion.
+One quiet evening, the dam finally broke. Tears streamed down ${OtherName}’s face as ${OtherSheHeThey} succumbed to ${OtherHerHisTheir} deep insecurities and the fear of not being a good enough parent. ${OtherName} felt a pang of helplessness. ${OtherName} felt frustrated; ${OtherSheHeThey} didn’t know anything about raising kits.
+Distraught and in desperate need of advice, ${OtherName} reached for ${OtherHerHisTheir} phone and called ${OtherHerHisTheir} mom. After a long conversation filled with shared tears and comforting words, ${OtherHerHisTheir} mother dropped a surprising suggestion: "Why don't you move closer to us?" ${OtherName} was stunned at first. The idea felt monumental, almost impossible. But as ${OtherSheHeThey} hung up, a seed of possibility began to sprout. Having ${OtherHerHisTheir} family nearby, especially when the kitten arrived, could be a lifeline, a much-needed source of help and emotional support to ease the inevitable stress of new parenthood.
+The pros were undeniable – built-in childcare, emotional support, and the comfort of family during such a delicate time. But the cons were equally significant. It would mean ${OtherName} changing jobs, finding a new rhythm in a different environment, and uprooting ${OtherHerHisTheir} entire life at a time when stability felt most crucial. It was a daunting prospect, a decision that would shape ${OtherHerHisTheir} future in profound ways. As ${OtherSheHeThey} mulled it over, the silence in the room was heavy, filled with the weight of an immense, life-altering choice.
+Question 
+Should ${OtherSheHeThey} move?
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,15 +120,19 @@
   // Note: the response that has n as its next page is the one that does NOT lead to twins.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Response text here`,
+      label: "Move to be near family",
+      response: `But as ${OtherSheHeThey} thought it over, the answer slowly became clear. While it was undoubtedly a massive undertaking, the potential benefits and the promise of family support couldn't be ignored. The decision was made: ${OtherSheHeThey} would move closer to ${OtherHerHisTheir} family. ${cap(OtherSheHeThey)} knew ${OtherSheHeThey} had to act quickly if ${OtherSheHeThey} wanted to have a place ready when the kitten arrived, and everything seemed to shift into lightning speed. ${OtherName}, incredibly, was able to secure a transfer to an office in that area, accepting a small pay cut. Almost immediately, ${OtherSheHeThey} began their search for a new home.
+${cap(OtherSheHeThey)} decided to stay in ${OtherHerHisTheir} original city until the kitten was born, to remain close to the surrogate, but having the home ready ahead of time was important to ${OtherHerHimThem}. This way ${OtherSheHeThey} won't have to be house hunting while trying to spend time with ${OtherHerHisTheir} little one and adjusting to ${OtherHerHisTheir} new schedule. In what felt like the blink of an eye, just two short months later, ${OtherSheHeThey} found ${OtherHerHimThem}self surrounded by boxes in ${OtherHerHisTheir} new living room. The air was filled with the cheerful hum of ${OtherName}'s family, all hands-on deck, helping ${OtherHerHimThem} unpack and settle in. As ${OtherName} looked around at the familiar faces, a profound sense of relief washed over ${OtherHerHimThem}. With ${OtherHerHisTheir} mother and the rest of ${OtherHerHisTheir} family now so close, lending their invaluable support, ${OtherSheHeThey} felt a powerful surge of comfort and confidence. ${cap(OtherHerHisTheir)} new beginning felt truly right, a solid foundation for the amazing adventure ahead.
+`,
       next: "n"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Response text here`
+      label: "Don't move",
+      response: `After much discussion, weighing the pros and cons late into the night, the difficult decision was made. Moving, while a lovely dream, was simply out of the cards. ${cap(OtherSheHeThey)} couldn't uproot ${OtherHerHisTheir} life now, with the kitten coming so soon. What if ${OtherSheHeThey} struggled to find new work? What if ${OtherSheHeThey} couldn't find a home that felt just right, that felt like ${OtherHersHisTheirs}? The fantasy of having ${OtherHerHisTheir} family just down the street was alluring, but it wasn't logical right now. ${cap(OtherSheHeThey)} couldn't panic; ${OtherSheHeThey} had this under control. ${OtherName}, though still feeling a little lost without ${OtherHerHisTheir} family physically close, knew this was right.
+Instead of relocating, ${OtherName} decided to lean into more regular calls with ${OtherHerHisTheir} mother. Having a trusted ear to vent to, and a seasoned voice to ask for advice, did wonders for ${OtherName}’s confidence. Sometimes, mother really did know best. ${OtherName}’s mother even promised to come visit when the kitten was due, offering ${OtherHerHimThem} invaluable help during the first precious few days. ${cap(OtherSheHeThey)} felt like ${OtherSheHeThey} had made the most responsible decision. The big day drew closer and ${OtherSheHeThey} trudged on, now with a renewed sense of confidence and peace.
+.`
     }
 
 
@@ -149,7 +160,7 @@ for (const key in options) {
 }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title";
+  const promptTitle = "Moving Near Family";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;

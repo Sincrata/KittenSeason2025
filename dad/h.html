@@ -100,7 +100,17 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Insert Prompt Text Here`.trim();
+  const storyText = `${OtherName} gently rubbed the surrogate’s slightly rounded belly, a smile playing on ${OtherHerHisTheir} lips. At five months pregnant, she was definitely showing, and the anticipation of meeting ${OtherHerHisTheir} little one was practically a constant hum in ${OtherHerHisTheir} life. Today was a big day – the second-trimester check-up, complete with an ultrasound. The surrogate told ${OtherHerHimThem} that she had done this before and they are going to have some fun! As ${OtherSheHeThey} followed her into the clinic ${OtherHerHisTheir} excitement was palpable.
+Inside the softly lit exam room, the doctor greeted them warmly. The seasoned surrogate lay back, and the cool gel was applied to her exposed belly. The ultrasound wand glided over her fur, and suddenly, there it was – a tiny, flickering image on the screen. The Kitten! A wave of overwhelming love washed over ${OtherName}. ${OtherHerHisTheir} felt tears prick ${OtherHerHisTheir} eyes, ${OtherHerHisTheir} heart overflowing with profound joy.
+The joy, however, slowly faded as the doctor leaned closer to the screen, his brow furrowing slightly. He spent a few moments in quiet contemplation, his expression shifting from pleasant to subtly concerned. He then turned to them, his voice calm but with an underlying seriousness. "Everything looks great physically," he began, "but some of the energy readings are a bit... unusual. It seems your kitten is having a little trouble with their developing clan power." ${OtherName} gave a confused glance. 
+"What does that mean, Doc?" ${OtherName} asked, ${OtherHerHisTheir} voice tensing. The doctor explained that while rare, sometimes the initial development of these powers could be unstable, potentially leading to a weakened or even disabled ability later in life if not addressed. The words hung in the air, heavy and chilling. The earlier joy evaporated, replaced by a sudden, gripping fear. The thought of ${OtherHerHisTheir} precious kitten facing such a challenge, so early on, was terrifying.
+Seeing ${OtherHerHisTheir} distress, the doctor quickly reassured ${OtherHerHimThem}. "Don't worry, there is a solution. We can put her on some regulated medication, a supplement specifically designed to stabilize the energy flow.” 
+ 
+It was a glimmer of hope, but one that came with significant caveats. The pills, he explained, were incredibly expensive, and even with the best intentions, there was no absolute guarantee of its success. ${OtherName} listened intently, ${OtherHerHisTheir} mind racing. Here was a chance, however slim, to give ${OtherHerHisTheir} child the best possible start, but at a cost that felt almost insurmountable – especially for a single floss already meticulously planning for every kitten expense.
+
+Question 
+Should ${OtherSheHeThey} take the prescription?
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,23 +123,21 @@
   // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Option 1 response here`,
-      next: "z"
+      label: "Take it",
+      response: `${cap(OtherSheHeThey)} glanced at ${OtherHerHisTheir} surrogate, then back at the doctor, a myriad of thoughts swirling in ${OtherHerHisTheir} head. The financial strain was daunting, a practical mountain rising before ${OtherHerHimThem}. Yet, looking at the ultrasound image on the screen, a tiny, developing life, ${OtherSheHeThey} knew there was only one choice ${OtherSheHeThey} could make. "I’ll take the prescription, Doctor," ${OtherName} said, ${OtherHerHisTheir} voice firm, tinged with a quiet resolve. For ${OtherHerHimThem}, the baby’s health was paramount, an absolute top priority that overshadowed any financial worry.
+As they left the clinic, a weight had lifted from ${OtherName}’s shoulders, replaced by a surge of determination. The path ahead might be challenging, but ${OtherSheHeThey} ${OtherWasWere} ready. ${cap(OtherSheHeThey)}'d figure out the payments, whether it meant exploring credit card options, reaching out to supportive family members for a loan, or finding extra work. Whatever it took, ${OtherSheHeThey} would ensure ${OtherHerHisTheir} kittenfloss had every possible chance at a healthy life. The journey to parenthood was proving to be filled with unexpected turns, but ${OtherName} was ready to face them all, driven by an unwavering love for the little one yet to arrive.
+`,
+      next: "n"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Option 2 response here`,
-      next: "z"
-    }
+      label: " Don't take it",
+      response: `After a long, thoughtful silence, ${OtherName} made ${OtherHerHisTheir} decision. With a deep breath, ${OtherSheHeThey} politely declined the prescription. It was an agonizing choice, one rooted deeply in practicality and a profound love for ${OtherHerHisTheir} child. Getting into significant debt right now, for a treatment that might not even be effective, felt like a gamble ${OtherSheHeThey} couldn't afford to lose. While the possibility of a power defect was undeniably daunting, the doctor had assured ${OtherHerHimThem} it wouldn't threaten the kitten's life. ${cap(OtherSheHeThey)} knew that any child, regardless of their needs, would be cherished by ${OtherHerHimThem}.
+${cap(OtherSheHeThey)} might look back on this moment with regret in the future, wondering "what if." But with the information ${OtherSheHeThey} had now – the high cost, the uncertainty of success, and the non-critical nature of the potential issue – ${OtherName} knew ${OtherSheHeThey} had to choose the path that ensured stability for ${OtherHerHisTheir} growing family. Instead of pouring money into a risky solution, ${OtherSheHeThey} would pour ${OtherHerHisTheir} heart and resources into preparing for whatever lay ahead. ${cap(OtherHerHisTheir)} focus now shifted to equipping ${OtherHerHimThem}self, emotionally and practically, to welcome a child who might have special needs, and require a little extra love and support, ready to embrace every challenge and joy that came with being a dedicated parent.
+`,
+      next: "l"
 
-
-    ,"option3": {
-      label: "Option 3",
-      response: `Option 3 response here`,
-      next: "z"
     }
 
 
@@ -146,7 +154,7 @@
   }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title Here";
+  const promptTitle = "Early Appointment";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;

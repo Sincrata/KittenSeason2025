@@ -8,7 +8,7 @@
 
 
 <!-- Step 1 replace the title here with the title of the prompt --!>
-  <title>Nursery</title>
+  <title>Title Here</title>
 
 
   <link rel="stylesheet" href="style.css">
@@ -51,7 +51,7 @@
 
 
 <!-- Step 2 replace the title here with the title of the prompt --!>
-  <h2 class="prompt">Nursery</h2>
+  <h2 class="prompt">Prompt Title</h2>
 
   <p>By Tenshilove</p>
 
@@ -61,7 +61,7 @@
 
   <div class="story">
     <div id="storyBox"></div>
-    <button onclick="copyStory()" class="storyButton">Copy Story</button>
+    <button onclick="copyStory()" class="copy">Copy Story</button>
   </div>
 
 
@@ -74,9 +74,9 @@
 <!-- If you have fewer than three choices,cComment out unused buttons with the symbols surrounding these sentences. --!>
 <!-- There is an example button commented out for you.--!>
   <div id="storyContainer">
-    <button onclick="showStory('nursery')" class="storyButton">Nursery</button>
-    <button onclick="showStory('office')" class="storyButton">Office</button>
-    <!-- <button onclick="showStory('shared space')" class="storyButton">Shared Space</button> --!>
+    <button onclick="showStory('option 1')" class="storyButton">Option 1</button>
+    <button onclick="showStory('option 2')" class="storyButton">Option 2</button>
+    <button onclick="showStory('option 3')" class="storyButton">Option 3</button>
 
     <!-- Example of a commented out button. Or you can just delete the line. That works too.--!>
     <!-- <button onclick="showStory('option 4')" class="storyButton">Example Button</button> --!>
@@ -146,13 +146,7 @@ if (OtherSheHeThey === "they") {
 
 
 <!-- Step 4. Insert the prompt text here. Inbetween the `` --!>
-  const storyText = `${OtherName} and ${PregnantName} are absolutely bubbling with excitement, their hearts filled with an overwhelming mix of happiness and love as they begin their first trimester journey. Meeting their tiny new addition couldn't come soon enough!
-Their first big project? The kitten's room. They spend hours laughing, poring over paint swatches and imagining playful murals. Soon, the walls begin to glow with bright, cheerful colors, ready for their kitten's arrival.
-Just as their nursery dreams were taking shape, an incredible opportunity landed in ${OtherName}’s lap. ${cap(OtherHerHisTheir)} company offered ${OtherHerHimThem} a new project promising significantly more income and, even better, the flexibility to work from home. This felt like a gift from above; more money meant they could provide even more for their little one, and ${OtherName}'s presence at home was a big plus. They celebrated, envisioning a secure future.
-However, the reality of working from home quickly set in. With the half-finished nursery beckoning and the usual home distractions, ${OtherName} found it incredibly difficult to concentrate. ${cap(OtherHerHisTheir)} work, usually sharp and efficient, began to suffer. The risk wasn't just losing this new project, but potentially jeopardizing ${OtherHerHisTheir} entire position. This was a crucial chance for their family's financial well-being.
-One evening, they stood together in the vibrant, unfinished nursery, their eyes lingering on the hopeful splashes of paint. The stark reality was clear: for ${OtherName} to succeed in this crucial new role, ${OtherSheHeThey} needed a dedicated home office. And that room was the nursery. Their hearts were torn. Should their kittenfloss sleep in their room for a while, securing ${OtherName}'s career and their financial future? Or continue with the nursery, knowing ${OtherName} would spend longer hours at the office? It was a truly difficult decision, balancing immediate comfort with their long-term security.
-Question:  
-What do they decide to do? Nursery or Home Office?`.trim();
+  const storyText = `Insert Prompt Here`.trim();
 
   document.getElementById("storyBox").innerText = storyText;
 
@@ -214,20 +208,19 @@ What do they decide to do? Nursery or Home Office?`.trim();
 
 
     // Step 5: Replace the option 1, option 2, and option 3 with the exact values of the lower case edits from Step 3
-    // Step 6: Add in the reponse for each prompt here in between the ``
+    // Step 6: Add in the reponse for each choice here in between the ``
     // Step 7: replace the option 1 letter, option 2 letter, option 3 letter with the lowercase letter corresponding to the next prompt the response leads to. 
     // Note: The letter can be found by looking at the CYOA tree Ten made. Ex: a, b, c
     // If you only need one or two of the options, just don't change the stuff for option 3. Handling the button in step 4 was enough.
-    if (path === 'nursery') {
-      text = `The decision, though difficult, was ultimately clear. Their baby’s precious space couldn't be sacrificed. While having the kitten in their room would work for a short while, they knew it wouldn't be long before their little one outgrew the temporary setup, forcing the same dilemma again. ${cap(OtherSheHeThey)} would simply have to commit to working at the main office, at least until ${OtherSheHeThey} fully mastered  ${OtherHerHisTheir} new position. So, they continued with the nursery, filling it with even more love and anticipation. ${cap(OtherSheHeThey)} worked later at the office each day, but it wasn't too bad, and  ${PregnantName} even found a little relief in a few more hours of quiet each afternoon. ${cap(OtherSheHeThey)} excelled in  ${OtherHerHisTheir} new role, and soon they were able to buy their dream furniture for the nursery. Even with  ${OtherHerHisTheir} late hours, they cherished every moment together, eagerly awaiting the arrival of their bundle of joy.
-`; // your 1 response here
-      page = "g"; // next prompt here. a, b, c, etc
-    } else if (path === 'office') {
-      text = `The decision, though a hard one, was clear. ${OtherName}  's new role was crucial. Together, they repainted the vibrant nursery walls back to a simple white and moved a computer desk into the space. Thankfully, the dedicated office worked wonders, allowing ${OtherName} to focus and complete ${OtherHerHisTheir} project on time. While the dream of a whimsical nursery faded, replaced by practicality, they lovingly set up a crib in the corner of their own bedroom. It wasn’t the same, but knowing ${OtherName} would be home and present for their baby was what mattered most.`; // your 2 story here
-      page = "h"; // next prompt here. a, b, c, etc
-    } else if (path === 'shared space') {
+    if (path === 'option 1') {
+      text = `Option 1 response here`; // your 1 response here
+      page = "option 1 letter"; // next prompt here. a, b, c, etc
+    } else if (path === 'option 2') {
+      text = `Option 2 response here`; // your 2 story here
+      page = "option 2 letter"; // next prompt here. a, b, c, etc
+    } else if (path === 'option 3') {
       text = `Option 3 response here`; // your 3 story here
-      page = "i"; // next prompt here. a, b, c, etc
+      page = "option 3 letter"; // next prompt here. a, b, c, etc
     }
 
     document.getElementById("copyBuffer").value = text;
@@ -241,3 +234,4 @@ What do they decide to do? Nursery or Home Office?`.trim();
 </script>
 </body>
 </html>
+

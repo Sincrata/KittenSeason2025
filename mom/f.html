@@ -100,7 +100,18 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Your prompt text here`.trim();
+  const storyText = `${PregnantName} was navigating the delightful, albeit sometimes dizzying, waters of the second trimester. ${PregnantName}’s baby bump, now adorably prominent, was a daily reminder of the little person soon to join ${PregnantHerHisTheir} life. The initial whirlwind of excitement and a touch of panic had gently settled into a comfortable rhythm. ${PregnantName}, ever diligent, was excelling at ${PregnantHerHisTheir} job, and ${PregnantHerHisTheir} home, once a flurry of kitten-related research and nesting instincts, felt calm and prepared.
+
+One Tuesday evening, as ${PregnantName} arrived at work, a pleasant surprise awaited ${PregnantHerHimThem}. ${cap(PregnantHerHisTheir)} boss congratulated ${PregnantHerHimThem} on all ${PregnantHerHisTheir} hard work and offered ${PregnantHerHimThem} a promotion! What a great opportunity! But as ${PregnantName} got some more information ${PregnantSheHeThey} started to hesitate and asked for some time to think about it.
+
+ ${PregnantName} mulled over the decision over the next few days, unsure what was best. It was a great opportunity but there’s a catch. The position requires ${PregnantHerHimThem} to go on an extended business trip to another clan, for a full month. That was a long time. ${cap(PregnantSheHeThey)} ${PregnantWasWere} really starting to feel the effects of ${PregnantHerHisTheir} pregnancy now, the newfound aches and the growing fatigue. A whole month? What if something happens to ${PregnantHerHimThem} or the kitten?
+
+And it’s not just this trip. They made it clear that regular, extended trips would be part of the role. The reality of it settled over ${PregnantHerHimThem} like a heavy blanket. The thought of ${PregnantHerHimThem} being called away for days at a time, especially close to ${PregnantHerHisTheir} due date, or when ${PregnantHerHisTheir} kitten is a newborn and all the important tiny moments are going by in a day care without ${PregnantHerHimThem}?
+
+ ${PregnantName} was distressed. This promotion wasn’t just a step up; it was an opportunity into a field ${PregnantSheHeThey} had always dreamed of, a job ${PregnantSheHeThey} truly enjoyed and had worked incredibly hard for. The idea of letting it slip away was painful. ${PregnantName} didn’t want to lose ${PregnantHerHisTheir} dream job, unable to pursue something that meant so much. But the thought of ${PregnantHerHimThem} missing ${PregnantHerHisTheir} child’s first moments, or juggling the challenging early days of parenthood along with work obligations, was equally heartbreaking. 
+
+${cap(PregnantSheHeThey)} stood there heavy with the essence of an unforeseen dilemma.
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,15 +124,27 @@
   // Note: the response that has l as its next page is the one that does NOT lead to twins.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Response text here`,
-      next: "l"
+      label: "Take it",
+      response: `After a long, thoughtful few days, filled with fears and quiet contemplation, ${PregnantSheHeThey} made a decision. ${PregnantName} would take the job. This might be ${PregnantHerHisTheir} only shot at such an incredible opportunity, and ${PregnantSheHeThey} reasoned that it wasn't as if ${PregnantSheHeThey} would have to give up parenthood entirely. It would undoubtedly be hard for ${PregnantHerHimThem} to be away from the baby, but perhaps ${PregnantSheHeThey} could work something out with ${PregnantHerHisTheir} boss regarding the frequency of trips. 
+
+
+
+After talking with ${PregnantHerHisTheir} boss, things were cleared up. Crucially, they agreed ${PregnantSheHeThey} would be able to take parental leave when the kitten was coming, and after it was born, ensuring that precious time would be safe from surprise business travel.
+ 
+
+${PregnantName}'s shoulders were visibly relaxed now that ${PregnantHerHisTheir} company was on board and so supportive. They talked about all the ways ${PregnantName} could work from home instead of coming along on the trips – phone calls, video chats, spreadsheets. This new chapter would certainly present a challenge, but ${PregnantName} believed having a kitten didn't mean ${PregnantSheHeThey} had to sacrifice every other dream in life. ${cap(PregnantSheHeThey)} had faced so much hardship already, and with ${PregnantHerHisTheir} heart full of love and a sense of determination, ${PregnantSheHeThey} ${PregnantWasWere} prepared to take on this challenge, too.
+`,
+      next: "L"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Response text here`
+      label: "Don't Take it",
+      response: `After a long few days of contemplation, the decision, though painful, became clear. ${PregnantName}, despite all ${PregnantHerHisTheir} hard work and the yearning for that coveted position, found ${PregnantHerHimThem}self unable to choose career over family. ${cap(PregnantSheHeThey)} couldn't live with ${PregnantHerHimThem}self if ${PregnantSheHeThey} missed out on the profound joy and challenges of ${PregnantHerHisTheir} kitten’s arrival. ${cap(PregnantSheHeThey)} knew ${PregnantSheHeThey} could always work hard, try for recognition again later in life when ${PregnantHerHisTheir} child was older and ${PregnantHerHisTheir} family more settled. 
+
+
+Perhaps ${PregnantHerHisTheir} boss would understand, seeing the depth of ${PregnantHerHisTheir} commitment not just to ${PregnantHerHisTheir} work, but to what truly mattered most. With a heavy heart, but a solid resolution, ${PregnantSheHeThey} decided to turn down the promotion, choosing ${PregnantHerHisTheir} coming little one, above all else.
+`
     }
 
 
@@ -149,7 +172,7 @@ for (const key in options) {
 }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Prompt Title Here";
+  const promptTitle = "Promotion";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;

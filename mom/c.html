@@ -100,7 +100,14 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Insert Prompt Text Here`.trim();
+  const storyText = ` ${PregnantName} was absolutely bubbling with excitement, ${PregnantHerHisTheir} heart filled with an overwhelming mix of happiness and love as ${PregnantSheHeThey} began ${PregnantHerHisTheir} first trimester journey. Meeting ${PregnantHerHisTheir} tiny new addition couldn't come soon enough! ${cap(PregnantHerHisTheir)} first big project? The kitten's room. ${cap(PregnantSheHeThey)} spent hours poring over paint swatches, and imagining playful murals. Soon, the walls begin to glow with bright, cheerful colors, ready for ${PregnantHerHisTheir} kitten's arrival.
+
+Just as ${PregnantHerHisTheir} nursery dreams were taking shape, an incredible opportunity landed in ${PregnantName}’s lap. ${cap(PregnantHerHisTheir)} company offered ${PregnantHerHimThem} a new project promising significantly more income and, even better, the flexibility to work from home. This felt like a gift from above; more money meant ${PregnantSheHeThey} could provide even more for ${PregnantHerHisTheir} little one, and ${PregnantHerHisTheir} presence at home was a big plus. ${cap(PregnantSheHeThey)} celebrated, envisioning a secure future.
+
+However, the reality of working from home quickly set in. With the half-finished nursery beckoning and the usual home distractions, ${PregnantName} found it incredibly difficult to concentrate. ${cap(PregnantHerHisTheir)} work, usually sharp and efficient, began to suffer. The risk wasn't just losing this new project, but potentially jeopardizing ${PregnantHerHisTheir} entire position. This was a crucial chance for ${PregnantHerHisTheir} future family's financial well-being.
+
+One evening, ${PregnantSheHeThey} stood together in the vibrant, unfinished nursery, ${PregnantHerHisTheir} eyes lingering on the hopeful splashes of paint. The stark reality was clear: for ${PregnantName} to succeed in this crucial new role, ${PregnantSheHeThey} needed a dedicated home office. And that room was the nursery. ${cap(PregnantHerHisTheir)} heart was torn. Should ${PregnantHerHisTheir} kittenfloss sleep in ${PregnantHerHisTheir} room for a while, securing ${PregnantHerHisTheir} career and ${PregnantHerHisTheir} financial future? Or continue with the nursery, knowing ${PregnantSheHeThey} would spend longer hours at the office? It was a truly difficult decision, balancing immediate comfort with ${PregnantHerHisTheir} long-term security.
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,24 +120,30 @@
   // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Option 1 response here`,
-      next: "z"
+      label: "Nursery",
+      response: `The decision, though difficult, was ultimately clear. The kitten’s precious space couldn't be sacrificed. While having the kitten in ${PregnantHerHisTheir} room would work for a short while, ${PregnantSheHeThey} knew it wouldn't be long before ${PregnantHerHisTheir} little one outgrew the temporary setup, forcing the same dilemma again. ${cap(PregnantSheHeThey)} would simply have to commit to working at the main office, at least until ${PregnantSheHeThey} fully mastered ${PregnantHerHisTheir} new position. 
+
+So, ${PregnantSheHeThey} continued with the nursery, filling it with even more love and anticipation. ${cap(PregnantSheHeThey)} worked later at the office each day, but it wasn't too bad. ${cap(PregnantSheHeThey)} excelled in ${PregnantHerHisTheir} new role, and soon ${PregnantSheHeThey} ${PregnantWasWere} able to buy ${PregnantHerHisTheir} dream furniture for the nursery. 
+
+
+Even with ${PregnantHerHisTheir} late hours, ${PregnantSheHeThey} cherished every moment eagerly awaiting the arrival of ${PregnantHerHisTheir} bundle of joy.
+`,
+      next: "H"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Option 2 response here`,
-      next: "z"
+      label: "Office",
+      response: `The decision, though a hard one, was clear. ${PregnantName}'s new role was crucial. ${cap(PregnantSheHeThey)} repainted the vibrant nursery walls back to a simple white and moved a computer desk into the space. Thankfully, the dedicated office worked wonders, allowing ${PregnantName} to focus and complete ${PregnantHerHisTheir} project on time. 
+
+
+While the dream of a whimsical nursery faded, replaced by practicality, ${PregnantSheHeThey} lovingly set up a crib in the corner of ${PregnantHerHisTheir} own bedroom. It wasn’t the same, but knowing ${PregnantSheHeThey} would be home and present for ${PregnantHerHisTheir} kitten was what mattered most.
+`,
+      next: "G"
     }
 
 
-    ,"option3": {
-      label: "Option 3",
-      response: `Option 3 response here`,
-      next: "z"
-    }
+    
 
 
   };
@@ -146,7 +159,7 @@
   }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title Here";
+  const promptTitle = "To Nursery or not to Nursery";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;

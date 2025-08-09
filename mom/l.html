@@ -100,7 +100,19 @@
 
 
   // ✅ Step 1: Insert your main prompt text here between the ``
-  const storyText = `Insert Prompt Text Here`.trim();
+  const storyText = ` ${PregnantName} was navigating the final stretch of pregnancy, a mix of exhaustion and boundless excitement. ${PregnantName}, in ${PregnantHerHisTheir} third trimester, was quite literally carrying a heavy load, but the thought of meeting ${PregnantHerHisTheir} baby kept ${PregnantHerHimThem} going. Things had been stressful, yet by taking things one step at a time, ${PregnantSheHeThey} felt prepared for what was to come, keenly anticipating ${PregnantHerHisTheir} little one’s arrival and, frankly, the end of pregnancy itself.
+
+Feeling the time coming soon, ${PregnantName} started to get nervous. There was so much ${PregnantSheHeThey} wanted to do before the baby was born. Though a lot of things could be ordered to the house, ${PregnantSheHeThey} couldn't avoid shopping in person for some of the last-minute items ${PregnantSheHeThey} wanted for the kitten. 
+
+${cap(PregnantSheHeThey)} ${PregnantWasWere} on ${PregnantHerHisTheir} way home from the store together with a car full of infant supplies when the car suddenly sputtered and stopped on the side of the road. The car wouldn't start, and it was very hot outside. For a while ${PregnantSheHeThey} tried to get it to start, but the heat started to get to ${PregnantName}. ${cap(PregnantSheHeThey)} grew irritable and began to sweat. ${PregnantName} considered calling a tow, but that was way too expensive for how close ${PregnantSheHeThey} ${PregnantWasWere} to home. ${cap(PregnantSheHeThey)} ${PregnantWasWere} only a mile or so away from the house, but ${PregnantName} ${PregnantWasWere}n’t able to walk that far – not in this heat, not this heavily pregnant. ${PregnantName} kept trying to get the car to start, but ${PregnantSheHeThey} ${PregnantWasWere} sweating profusely and ${PregnantWasWere} genuinely concerned about the worsening heat.
+
+The sun beat down relentlessly, making the inside of the stranded car feel like an oven. ${PregnantName} fanned ${PregnantHerHimThem}self with a baby blanket, ${cap(PregnantHerHisTheir)} patience wearing thin. "Come on! Spirits! Please!"
+
+
+${cap(PregnantSheHeThey)} had no choice but to get out of the car and pop the hood. 
+
+ ${PregnantName}, leaning over the engine, sighed, ${PregnantHerHisTheir} brow slick with sweat. ${cap(PregnantSheHeThey)} knew it was best to just give up and call a tow, but the thought of another unexpected expense was daunting. Still, ${PregnantSheHeThey} ${PregnantWasWere} starting to feel faint, and ${PregnantHerHisTheir} face was becoming flush. ${cap(PregnantHerHisTheir)} well-being, and the baby's, was paramount.
+`.trim();
   document.getElementById("storyBox").innerText = storyText;
 
 
@@ -113,24 +125,35 @@
   // 3: fill in the lowercase letter of the prompt the option leads to. Letters can be found on the image Ten made.
   const options = {
     "option1": {
-      label: "Option 1",
-      response: `Option 1 response here`,
-      next: "z"
+      label: "Walk Home",
+      response: ` ${PregnantName}, wilting and genuinely worried about the heat's impact on ${PregnantHerHisTheir} baby, knew ordinary solutions wouldn't cut it. 
+
+
+${cap(PregnantSheHeThey)} made a snap decision and locked up the car. "Alright, my sweet kitten," ${PregnantSheHeThey} declared, "We're walking home." And so, ${PregnantName} began trudging down the road, carrying ${PregnantHerHisTheir} heavy load on jelly legs towards ${PregnantHerHisTheir} neighborhood. It wasn't long before a true good Samaritan, witnessing this heartwarming and slightly comical scene, pulled over. The kind stranger offered ${PregnantHerHimThem} a ride, and the blast of air conditioning in their car was nothing short of heaven for ${PregnantName}. Soon ${PregnantName} and the baby were safely home, cooled down with water and resting.
+
+
+ After a few hours the weather outside cooled down considerably and ${PregnantName}, feeling better, and resolute in ${PregnantHerHisTheir} mission, made ${PregnantHerHisTheir} way back to ${PregnantHerHisTheir} stranded vehicle. After another hour of tinkering and sheer willpower, the engine finally sputtered to life, and ${PregnantSheHeThey} drove it home, triumphant. ${cap(PregnantSheHeThey)} ${PregnantWasWere} exhausted but incredibly grateful, for another adventure survived.
+`,
+      next: "r"
     }
 
 
     ,"option2": {
-      label: "Option 2",
-      response: `Option 2 response here`,
-      next: "z"
+      label: "Call a Tow",
+      response: `
+${PregnantName} was clearly overheating, ${PregnantHerHisTheir} face flushed and ${PregnantHerHisTheir} movements sluggish. ${PregnantName}'s concern mounted with every passing second; the expense suddenly seemed trivial compared to ${PregnantHerHisTheir} discomfort and the potential risk to ${PregnantHerHisTheir} kitten.
+
+Taking a deep breath, ${PregnantName} finally put down ${PregnantHerHisTheir} tools. "I can’t," ${PregnantSheHeThey} breathed heavily, the words a little tough to get out, but ${PregnantHerHisTheir} resolve was firm. "Your health, and the baby's, are way more important than a few hundred bucks." ${PregnantSheHeThey} told ${PregnantHerHimThem}self, pulled out ${PregnantHerHisTheir} phone, and, swallowing ${PregnantHerHisTheir} pride, called for a tow. 
+
+To ${PregnantHerHisTheir} relief, only fifteen minutes later, a large tow truck pulled up. Soon, ${PregnantHerHisTheir} sputtering car was hitched to the back, and ${PregnantName} was gratefully climbing into the blessed air-conditioned cab. It was indeed a remarkably pricey mile, but as ${PregnantName} started to cool down, ${PregnantSheHeThey} knew it was entirely worth every penny.
+
+Once ${PregnantSheHeThey} ${PregnantWasWere} safely home and comfortably settled, the tension from the roadside ordeal fully dissipated. Moments like these only reinforced ${PregnantHerHisTheir} readiness for the wonderful, chaotic adventure that lay just around the corner.
+`,
+      next: "s"
     }
 
 
-    ,"option3": {
-      label: "Option 3",
-      response: `Option 3 response here`,
-      next: "z"
-    }
+    
 
 
   };
@@ -146,7 +169,7 @@
   }
 
   // ✅ Step 3: Insert the Prompt Title: Conception, Happy, Promotion, etc
-  const promptTitle = "Your Prompt Title Here";
+  const promptTitle = "The Breakdown";
 
   
   document.getElementById("pageTitle").innerText = promptTitle;
